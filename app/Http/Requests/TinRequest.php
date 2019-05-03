@@ -25,8 +25,7 @@ class TinRequest extends FormRequest
     {
         return [
             'tieuDe' => 'required',
-            'title' => 'required',
-            'description' => 'required',
+            'tomTat' => 'required',
             'keyword' => 'required',
             'img' => 'required',
             'date' => 'required',
@@ -39,13 +38,12 @@ class TinRequest extends FormRequest
     {
         return [
             'tieuDe.required' => 'Tiêu đề không hợp lệ',
-            'title.required' => 'Title không hợp lệ',
-            'description.required' => 'Description không hợp lệ',
+            'tomTat.required' => 'Tóm tắt không hợp lệ',
             'keyword.required' => 'Keyword không hợp lệ',
             'img.required' => 'img chưa hợp lệ',
             'date.required' => 'Ngày không hợp lệ',
-            'noiDung.required' => 'Ban chua nhap nội dung',
-            'maLoaiTin.required' => 'Ban chua chọn mã loại tin',
+            'noiDung.required' => 'bạn chưa nhap nội dung',
+            'maLoaiTin.required' => 'bạn chưa chọn mã loại tin',
         ];
     }
 }

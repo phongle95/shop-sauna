@@ -20,30 +20,38 @@
          <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                <div class="card-body">
-                  <h4 class="card-title">Danh Sách Loại Tin</h4>
+                  <h4 class="card-title">Danh Sách Loại Mặt Hàng</h4>
                   <p class="card-description">
-                     <a href="{{ route('admin.pages.loaitin.them') }}" class="btn btn-inverse-info btn-fw">
-                     Thêm Loại Tin</a>
+                     <a href="{{ route('admin.pages.items.them') }}" class="btn btn-inverse-info btn-fw">
+                     Thêm Mặt Hàng</a>
                   </p>
                   <table class="table table-hover">
                      <thead>
                         <tr>
-                           <th>Mã Loại Tin</th>
-                           <th>Danh Mục</th>
+                           <th>id</th>
+                           <th>Loại Mặt Hàng</th>
+                           <th>Loại Sản Phẩm</th>
                            <th>Sửa</th>
                            <th>Xóa</th>
                         </tr>
                      </thead>
                      <tbody>
-                        @foreach ($loaitin as $lt)
+                        @foreach ($mathang as $item)
                         <tr class="tr-shadow">
-                           <td>{{ $lt->id }}</td>
-                           <td>{{ $lt->tenLoaiTin }}</td>
+                           <td>{{ $item->id }}</td>
+                           <td>{{ $item->tenMatHang }}</td>
                            <td>
-                              <a href="{{ route('admin.pages.loaitin.sua',$lt->id) }}" class="btn btn-outline-success btn-fw"> Sửa</a>
+                                @foreach ($loaisanpham as $lsp)
+                                    @if ($item->maLoaiSanPham == $lsp->id)
+                                        {{ $lsp->tenLoaiSanPham }}
+                                    @endif
+                                @endforeach
+                            </td>
+                           <td>
+                              <a href="{{ route('admin.pages.items.sua',$item->id) }}" class="btn btn-outline-success btn-fw"> Sửa</a>
                            </td>
                            <td>
-                              <a href="{{ route('admin.pages.loaitin.xoa',$lt->id) }}" class="btn btn-outline-danger btn-fw"> Xóa</a>
+                              <a href="{{ route('admin.pages.items.xoa',$item->id) }}" class="btn btn-outline-danger btn-fw"> Xóa</a>
                            </td>
                         </tr>
                         <tr class="spacer"></tr>

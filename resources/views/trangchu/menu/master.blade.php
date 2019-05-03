@@ -164,50 +164,24 @@
                                     <a href="#" class="sf-with-ul">Danh Mục Sản Phẩm</a>
 
                                     <ul>
-                                        <li><a href="">Máy Xông Hơi Ướt - Steam</a>
+                                        @foreach ($loaisanpham as $item)
+
+                                        <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug($item->tenLoaiSanPham),'id'=>$item->id]) }}">{{ $item->tenLoaiSanPham }}</a>
+
                                             <ul>
-                                                <li><a href="checkout-shipping.html">Checkout Shipping</a></li>
-                                                <li><a href="checkout-shipping-2.html">Checkout Shipping 2</a></li>
-                                                <li><a href="checkout-review.html">Checkout Review</a></li>
+                                            @foreach ($mathang as $mh)
+
+                                                @if ($item->id == $mh->maLoaiSanPham)
+                                                <li><a href="">{{ $mh->tenMatHang }}</a></li>
+
+                                                @endif
+                                            @endforeach
+
                                             </ul>
+
                                         </li>
-                                        <li><a href="">Máy Xông Hơi Khô - Sauna</a>
-                                            <ul>
-                                                <li><a href="dashboard.html">Dashboard</a></li>
-                                                <li><a href="my-account.html">My Account</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="">Phòng Xông Hơi Khô - Sauna</a>
-                                            <ul>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single.html">Blog Post</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="">Phòng Xông Hồng Ngoại</a>
-                                            <ul>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single.html">Blog Post</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Phòng Xông Hơi Đá Muối Hymalaya</a></li>
-                                        <li><a href="">Bồn Tắm - Bồn Massage</a>
-                                            <ul>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single.html">Blog Post</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="">Thiết Bị - Phụ Kiện Xông Hơi</a>
-                                            <ul>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single.html">Blog Post</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="">Hệ Thống Sưởi Sàn</a>
-                                            <ul>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single.html">Blog Post</a></li>
-                                            </ul>
-                                        </li>
+                                        @endforeach
+                                        <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug('Phòng Xông Hơi Đá Muối Hymalaya'),'id'=>20]) }}">Phòng Xông Hơi Đá Muối Hymalaya</a></li>
                                     </ul>
                                 </li>
                             <li>

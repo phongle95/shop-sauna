@@ -8,6 +8,8 @@ use App\travel;
 use App\hotel;
 use App\car;
 use App\loaitin;
+use App\loaisanpham;
+use App\sanpham;
 use Storage;
 use Mail;
 use Illuminate\Support\Facades\Session;
@@ -67,6 +69,13 @@ class TrangChuController extends Controller
     //liên hệ
     public function lienhe(){
         return view('trangchu.pages.lienhe');
+    }
+
+
+    // danh sach san pham
+    public function listProduct($slug,$id){
+        $sanpham = sanpham::where('maLoaiSanPham',$id)->orderBy('id','DESC')->limit(4)->get();
+        return view('trangchu.pages.listproduct',['sanpham'=>$sanpham]);
     }
 
     // //chi tiết du lịch

@@ -30,7 +30,7 @@
                         <tr>
                            <th>Tiêu Đề</th>
                            <th>Hình</th>
-                           <th>Mã Loại Tin</th>
+                           <th>Danh Mục</th>
                            <th>Sửa</th>
                            <th>Xóa</th>
                         </tr>
@@ -42,7 +42,13 @@
                            <td>
                               <img style="height:150px;width:150px" src="/upload/{{ $new->img }}" alt="lý sơn"/>
                            </td>
-                           <td>{{ $new->maLoaiTin }}</td>
+                           <td>
+                               @foreach ($loaitin as $item)
+                                   @if ($item->id == $new->maLoaiTin)
+                                       {{ $item->tenLoaiTin }}
+                                   @endif
+                               @endforeach
+                           </td>
                            <td>
                               <a href="{{ route('admin.pages.tin.sua',$new->id) }}" class="btn btn-outline-success btn-fw"> Sửa</a>
                            </td>

@@ -75,13 +75,10 @@ Route::get('lien-he',['uses'=>'TrangChuController@lienhe','as'=>'trangchu.pages.
 // ]);
 
 
-
-Route::get('abc', function() {
-   return view('trangchu.menu.master');
-});
-
-
-
+Route::get('danh-muc-san-pham-{slug}_{id}', [
+    'uses' => 'TrangChuController@listProduct',
+    'as' => 'trangchu.pages.listproduct'
+]);
 
 
 // Route::get('sitemap.xml', [
@@ -179,6 +176,42 @@ Route::prefix('sauna-admin')->middleware('auth')->group(function() {
 
     });
 
+
+    //danh sách loại mặt hàng
+    Route::group(['prefix' => 'loai-mat-hang'], function() {
+
+        Route::get('danh-sach', [
+            'uses' => 'AdminController@danhSachMatHang',
+            'as' => 'admin.pages.items.danhsach'
+        ]);
+
+        Route::get('them', [
+            'uses' => 'AdminController@themMatHang',
+            'as' => 'admin.pages.items.them'
+        ]);
+
+        Route::post('them', [
+            'uses' => 'AdminController@postThemMatHang',
+            'as' => 'admin.pages.items.them'
+        ]);
+
+        Route::get('sua/{id}', [
+            'uses' => 'AdminController@getSuaMatHang',
+            'as' => 'admin.pages.items.sua'
+        ]);
+
+        Route::post('sua/{id}', [
+            'uses' => 'AdminController@postSuaMatHang',
+            'as' => 'admin.pages.items.sua'
+        ]);
+
+        Route::get('xoa/{id}', [
+            'uses' => 'AdminController@xoaMatHang',
+            'as' => 'admin.pages.items.xoa'
+        ]);
+
+    });
+
     Route::group(['prefix' => 'san-pham'], function() {
 
         Route::get('danh-sach', [
@@ -189,6 +222,27 @@ Route::prefix('sauna-admin')->middleware('auth')->group(function() {
         Route::get('them', [
             'uses' => 'AdminController@themSanPham',
             'as' => 'admin.pages.sanpham.them'
+        ]);
+
+        Route::post('them', [
+            'uses' => 'AdminController@postThemSanPham',
+            'as' => 'admin.pages.sanpham.them'
+        ]);
+
+        Route::get('sua/{id}', [
+            'uses' => 'AdminController@getSuaSanPham',
+            'as' => 'admin.pages.sanpham.sua'
+        ]);
+
+        Route::post('sua/{id}', [
+            'uses' => 'AdminController@postSuaSanPham',
+            'as' => 'admin.pages.sanpham.sua'
+        ]);
+
+
+        Route::get('xoa/{id}', [
+            'uses' => 'AdminController@xoaSanPham',
+            'as' => 'admin.pages.sanpham.xoa'
         ]);
 
     });

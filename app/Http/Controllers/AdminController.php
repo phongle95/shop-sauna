@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\loaitin;
 use App\news;
+use App\items;
 use App\loaisanpham;
 use App\sanpham;
 use App\Http\Requests\TinRequest;
 use App\Http\Requests\TinSuaRequest;
+use App\Http\Requests\SanPhamRequest;
+use App\Http\Requests\SanPhamSuaRequest;
 use Illuminate\Support\Facades\Auth;
 use Storage;
 
@@ -61,16 +64,193 @@ class AdminController extends Controller
         return redirect(route('admin.pages.loaisanpham.danhsach'))->with('xoa','Xóa thành công');
     }
 
-    // danh sách sản phẩm
-    public function danhSachSanPham(){
-
-        $sanpham = sanpham::orderBy('id','DESC')->get();
-        return view('admin.pages.sanpham.danhsach',['sanpham'=>$sanpham]);
+    // danh sách loại mặt hàng
+    public function danhSachMatHang(){
+        $mathang = items::all();
+        $loaisanpham = loaisanpham::all();
+        return view('admin.pages.items.danhsach',['mathang'=>$mathang,'loaisanpham'=>$loaisanpham]);
     }
 
-    // get danh sách thêm sản phẩm
+    // get thêm mặt hàng
+    public function themMatHang(){
+        $loaisanpham = loaisanpham::all();
+        return view('admin.pages.items.them',['loaisanpham'=>$loaisanpham]);
+    }
+
+    // post thêm mặt hàng
+    public function postThemMatHang(Request $request){
+        $mathang  = new items;
+        $mathang->tenMatHang = $request->tenMatHang;
+        $mathang->maLoaiSanPham = $request->maLoaiSanPham;
+        $mathang->save();
+        return redirect(route('admin.pages.items.danhsach'))->with('thongbao','Thêm thành công');
+    }
+
+    // get sửa mặt hàng
+    public function getSuaMatHang($id){
+        $mathang = items::find($id);
+        $loaisanpham = loaisanpham::all();
+        return view('admin.pages.items.sua',['mathang'=>$mathang,'loaisanpham'=>$loaisanpham]);
+    }
+
+    // post sửa mặt hàng
+    public function postSuaMatHang(Request $request,$id){
+        $mathang = items::find($id);
+        $mathang->tenMatHang = $request->tenMatHang;
+        $mathang->maLoaiSanPham = $request->maLoaiSanPham;
+        $mathang->save();
+        return redirect(route('admin.pages.items.danhsach'))->with('thongbao','Sửa thành công');
+    }
+
+    // xóa mặt hàng
+    public function xoaMatHang($id){
+        $mathang = items::find($id);
+        $mathang->delete();
+        return redirect(route('admin.pages.items.danhsach'))->with('xoa','Xóa thành công');
+    }
+
+    // danh sách sản phẩm
+    public function danhSachSanPham(){
+        $loaisanpham = loaisanpham::all();
+        $mathang = items::all();
+        $sanpham = sanpham::orderBy('id','DESC')->get();
+        return view('admin.pages.sanpham.danhsach',['sanpham'=>$sanpham,'loaisanpham'=>$loaisanpham,'mathang'=>$mathang]);
+    }
+
+    // get thêm sản phẩm
     public function themSanPham(){
-        return view('admin.pages.sanpham.them');
+        $mathang = items::all();
+        $loaisanpham = loaisanpham::all();
+        return view('admin.pages.sanpham.them',['mathang'=>$mathang,'loaisanpham'=>$loaisanpham]);
+    }
+
+    // post thêm sản phẩm
+    public function postThemSanPham(SanPhamRequest $request){
+        $sanpham = new sanpham;
+        $sanpham->tenSP = $request->tenSP;
+        $sanpham->tomTat = $request->tomTat;
+        $sanpham->keyword = $request->keyword;
+        $sanpham->gia = $request->gia;
+        $sanpham->productDetail = $request->productDetail;
+        $sanpham->maLoaiSanPham = $request->maLoaiSanPham;
+        $sanpham->maSanPham = $request->maSanPham;
+
+        $file = $request->file('img');
+
+
+        if ($file !="") {
+            $img = $file->store("/", ['disk'=>'upload']);
+            $sanpham->img=$img;
+        }
+        else{
+            $sanpham->img="defau.png";
+        }
+
+        $file1 = $request->file('img1');
+
+
+        if ($file1 !="") {
+            $img1 = $file1->store("/", ['disk'=>'upload']);
+            $sanpham->img1=$img1;
+        }
+        else{
+            $sanpham->img1="defau.png";
+        }
+        $file2 = $request->file('img2');
+
+
+        if ($file2 !="") {
+            $img2 = $file2->store("/", ['disk'=>'upload']);
+            $sanpham->img2=$img2;
+        }
+        else{
+            $sanpham->img2="defau.png";
+        }
+        $file3 = $request->file('img3');
+
+
+        if ($file3 !="") {
+            $img3 = $file3->store("/", ['disk'=>'upload']);
+            $sanpham->img3=$img3;
+        }
+        else{
+            $sanpham->img3="defau.png";
+        }
+
+
+        $sanpham->save();
+        return redirect(route('admin.pages.sanpham.danhsach'))->with('thongbao','Thêm thành công');
+    }
+
+    // get sửa sản phẩm
+    public function getSuaSanPham($id){
+        $sanpham = sanpham::find($id);
+        $mathang = items::all();
+        $loaisanpham = loaisanpham::all();
+        return view('admin.pages.sanpham.sua',['sanpham'=>$sanpham,'mathang'=>$mathang,'loaisanpham'=>$loaisanpham]);
+    }
+
+    // post sửa sản phẩm
+    public function postSuaSanPham(SanPhamSuaRequest $request,$id){
+        $sanpham = sanpham::find($id);
+        $sanpham->tenSP = $request->tenSP;
+        $sanpham->tomTat = $request->tomTat;
+        $sanpham->keyword = $request->keyword;
+        $sanpham->gia = $request->gia;
+        $sanpham->productDetail = $request->productDetail;
+        $sanpham->maLoaiSanPham = $request->maLoaiSanPham;
+        $sanpham->maSanPham = $request->maSanPham;
+
+        $file = $request->file('img');
+
+
+        if ($file !="") {
+            $img = $file->store("/", ['disk'=>'upload']);
+            unlink(public_path()."/upload/".$sanpham->img);
+            $sanpham->img=$img;
+        }
+
+
+        $file1 = $request->file('img1');
+
+
+        if ($file1 !="") {
+            $img1 = $file1->store("/", ['disk'=>'upload']);
+            unlink(public_path()."/upload/".$sanpham->img1);
+            $sanpham->img1=$img1;
+        }
+
+        $file2 = $request->file('img2');
+
+
+        if ($file2 !="") {
+            $img2 = $file2->store("/", ['disk'=>'upload']);
+            unlink(public_path()."/upload/".$sanpham->img2);
+            $sanpham->img2=$img2;
+        }
+
+        $file3 = $request->file('img3');
+
+
+        if ($file3 !="") {
+            $img3 = $file3->store("/", ['disk'=>'upload']);
+            unlink(public_path()."/upload/".$sanpham->img3);
+            $sanpham->img3=$img3;
+        }
+
+        $sanpham->save();
+        return redirect(route('admin.pages.sanpham.danhsach'))->with('thongbao','Sửa thành công');
+    }
+
+    // xóa sản phẩm
+    public function xoaSanPham($id){
+        $sanpham = sanpham::find($id);
+        unlink(public_path()."/upload/".$sanpham->img);
+        unlink(public_path()."/upload/".$sanpham->img1);
+        unlink(public_path()."/upload/".$sanpham->img2);
+        unlink(public_path()."/upload/".$sanpham->img3);
+        $sanpham->delete();
+        return redirect(route('admin.pages.sanpham.danhsach'))->with('xoa','Xóa thành công');
     }
 
     //danh sách loại tin
@@ -109,271 +289,76 @@ class AdminController extends Controller
         return redirect(route('admin.pages.loaitin.danhsach'))->with('xoa','Xóa thành công');
     }
 
-    // // tin tức
-    // public function getDanhSachTin(){
-    //     $tin = tin::orderBy('id','DESC')->get();
-    //     return view('admin.pages.tin.danhsach',['tin'=>$tin]);
-    // }
+    // tin tức
+    public function getDanhSachTin(){
+        $tin = news::orderBy('id','DESC')->get();
+        $loaitin = loaitin::all();
+        return view('admin.pages.tin.danhsach',['tin'=>$tin,'loaitin'=>$loaitin]);
+    }
 
-    // public function getThemTin(){
-    //     $loaitin = loaitin::all();
-    //     return view('admin.pages.tin.them',['loaitin'=>$loaitin]);
-    // }
+    public function getThemTin(){
+        $loaitin = loaitin::all();
+        return view('admin.pages.tin.them',['loaitin'=>$loaitin]);
+    }
 
-    // public function postThemTin(TinRequest $request){
+    public function postThemTin(TinRequest $request){
 
-    //     $tin = new tin;
-    //     $tin->tieuDe = $request->tieuDe;
-    //     $tin->title = $request->title;
-    //     $tin->description = $request->description;
-    //     $tin->keyword = $request->keyword;
-    //     $tin->date = $request->date;
-    //     $tin->noiDung = $request->noiDung;
-    //     $tin->maLoaiTin = $request->maLoaiTin;
+        $tin = new news;
+        $tin->tieuDe = $request->tieuDe;
+        $tin->tomTat = $request->tomTat;
+        $tin->keyword = $request->keyword;
+        $tin->date = $request->date;
+        $tin->noiDung = $request->noiDung;
+        $tin->maLoaiTin = $request->maLoaiTin;
 
-    //     $file = $request->file('img');
-
-
-    //     if ($file !="") {
-    //         $img = $file->store("/", ['disk'=>'upload']);
-    //         $tin->img=$img;
-    //     }
-    //     else{
-    //         $tin->img="defau.png";
-    //     }
+        $file = $request->file('img');
 
 
-    //     $tin->save();
-    //     return redirect(route('admin.pages.tin.danhsach'))->with('thongbao','Thêm thành công');
-    // }
-
-    // public function getSuaTin($id){
-    //     $loaitin = loaitin::all();
-    //     $tin = tin::find($id);
-    //     return view('admin.pages.tin.sua',['tin'=>$tin,'loaitin'=>$loaitin]);
-    // }
-
-    // public function postSuaTin(TinSuaRequest $request,$id){
-    //     $tin = tin::find($id);
-    //     $tin->tieuDe = $request->tieuDe;
-    //     $tin->title = $request->title;
-    //     $tin->description = $request->description;
-    //     $tin->keyword = $request->keyword;
-    //     $tin->date = $request->date;
-    //     $tin->noiDung = $request->noiDung;
-    //     $tin->maLoaiTin = $request->maLoaiTin;
-
-    //     $file = $request->file('img');
-    //     if ($file !="") {
-    //         $img = $file->store("/", ['disk'=>'upload']);
-    //         // unlink(public_path()."/upload/".$tin->img);
-    //         $tin->img=$img;
-    //     }
-    //     $tin->save();
-    //     return redirect(route('admin.pages.tin.danhsach'))->with('thongbao','Sửa thành công');
-    // }
-
-    // public function getXoaTin($id){
-    //     $tin = tin::find($id);
-    //     $tin->delete();
-    //     return redirect(route('admin.pages.tin.danhsach'))->with('xoa','Xóa thành công');
-    // }
-
-    // //travel
-
-    // public function getDanhSachTravel(){
-    //     $travel = travel::orderBy('id','DESC')->get();
-    //     return view('admin.pages.travel.danhsach',['travel'=>$travel]);
-    // }
-
-    // public function getThemTravel(){
-    //     return view('admin.pages.travel.them');
-    // }
-
-    // public function postThemTravel(TravelRequest $request){
-    //     $travel = new travel;
-    //     $travel->tenTour = $request->tenTour;
-    //     $travel->title = $request->title;
-    //     $travel->tomTat = $request->tomTat;
-    //     $travel->keyword = $request->keyword;
-    //     $travel->gia = $request->gia;
-    //     $travel->date = $request->date;
-    //     $travel->noiDung = $request->noiDung;
-    //     $travel->khuyenMai = $request->khuyenMai;
-
-    //     $file = $request->file('img');
-
-    //     if ($file !="") {
-    //         $img = $file->store("/", ['disk'=>'upload']);
-    //         $travel->img=$img;
-    //     }
-    //     else{
-    //         $travel->img="defau.png";
-    //     }
-    //     $travel->save();
-    //     return redirect(route('admin.pages.travel.danhsach'))->with('thongbao','Thêm thành công');
-    // }
-
-    // public function getSuaTravel($id){
-    //     $travel = travel::find($id);
-    //     return view('admin.pages.travel.sua',['travel'=>$travel]);
-    // }
-
-    // public function postSuaTravel(TravelSuaRequest $request,$id){
-    //     $travel = travel::find($id);
-    //     $travel->tenTour = $request->tenTour;
-    //     $travel->title = $request->title;
-    //     $travel->tomTat = $request->tomTat;
-    //     $travel->keyword = $request->keyword;
-    //     $travel->gia = $request->gia;
-    //     $travel->date = $request->date;
-    //     $travel->noiDung = $request->noiDung;
-    //     $travel->khuyenMai = $request->khuyenMai;
-
-    //     $file = $request->file('img');
-
-    //     if ($file !="") {
-    //         $img = $file->store("/", ['disk'=>'upload']);
-    //         // unlink(public_path()."/upload/".$travel->img);
-    //         $travel->img=$img;
-    //     }
-    //     $travel->save();
-    //     return redirect(route('admin.pages.travel.danhsach'))->with('thongbao','Sửa thành công');
-
-    // }
-
-    // public function getXoaTravel($id){
-    //     $travel = travel::find($id);
-    //     $travel->delete();
-    //     return redirect(route('admin.pages.travel.danhsach'))->with('xoa','Xóa thành công');
-    // }
+        if ($file !="") {
+            $img = $file->store("/", ['disk'=>'upload']);
+            $tin->img=$img;
+        }
+        else{
+            $tin->img="defau.png";
+        }
 
 
-    // //hotel
-    // public function getDanhSachHotel(){
-    //     $hotel = hotel::orderBy('id','DESC')->get();
-    //     return view('admin.pages.hotel.danhsach',['hotel'=>$hotel]);
-    // }
+        $tin->save();
+        return redirect(route('admin.pages.tin.danhsach'))->with('thongbao','Thêm thành công');
+    }
 
-    // public function getThemHotel(){
-    //    return view('admin.pages.hotel.them');
-    // }
+    public function getSuaTin($id){
+        $loaitin = loaitin::all();
+        $tin = news::find($id);
+        return view('admin.pages.tin.sua',['tin'=>$tin,'loaitin'=>$loaitin]);
+    }
 
-    // public function postThemHotel(HotelRequest $request){
-    //     $hotel = new hotel;
-    //     $hotel->tenHotel = $request->tenHotel;
-    //     $hotel->title = $request->title;
-    //     $hotel->description = $request->description;
-    //     $hotel->keyword = $request->keyword;
-    //     $hotel->gia = $request->gia;
-    //     $hotel->diaChi = $request->diaChi;
-    //     $hotel->noiDung = $request->noiDung;
+    public function postSuaTin(TinSuaRequest $request,$id){
+        $tin = news::find($id);
+        $tin->tieuDe = $request->tieuDe;
+        $tin->tomTat = $request->tomTat;
+        $tin->keyword = $request->keyword;
+        $tin->date = $request->date;
+        $tin->noiDung = $request->noiDung;
+        $tin->maLoaiTin = $request->maLoaiTin;
 
-    //     $file = $request->file('img');
+        $file = $request->file('img');
+        if ($file !="") {
+            $img = $file->store("/", ['disk'=>'upload']);
+            unlink(public_path()."/upload/".$tin->img);
+            $tin->img=$img;
+        }
+        $tin->save();
+        return redirect(route('admin.pages.tin.danhsach'))->with('thongbao','Sửa thành công');
+    }
 
-    //     if ($file !="") {
-    //         $img = $file->store("/", ['disk'=>'upload']);
-    //         $hotel->img=$img;
-    //     }
-    //     else{
-    //         $hotel->img="defau.png";
-    //     }
-    //     $hotel->save();
-    //     return redirect(route('admin.pages.hotel.danhsach'))->with('thongbao','Thêm thành công');
-    // }
+    public function getXoaTin($id){
+        $tin = news::find($id);
+        unlink(public_path()."/upload/".$tin->img);
+        $tin->delete();
+        return redirect(route('admin.pages.tin.danhsach'))->with('xoa','Xóa thành công');
+    }
 
-    // public function getSuaHotel($id){
-    //     $hotel = hotel::find($id);
-    //     return view('admin.pages.hotel.sua',['hotel'=>$hotel]);
-    // }
-
-    // public function postSuaHotel(HotelSuaRequest $request,$id){
-    //     $hotel = hotel::find($id);
-    //     $hotel->tenHotel = $request->tenHotel;
-    //     $hotel->title = $request->title;
-    //     $hotel->description = $request->description;
-    //     $hotel->keyword = $request->keyword;
-    //     $hotel->gia = $request->gia;
-    //     $hotel->diaChi = $request->diaChi;
-    //     $hotel->noiDung = $request->noiDung;
-
-    //     $file = $request->file('img');
-
-    //     if ($file !="") {
-    //         $img = $file->store("/", ['disk'=>'upload']);
-    //         // unlink(public_path()."/upload/".$hotel->img);
-    //         $hotel->img=$img;
-    //     }
-
-    //     $hotel->save();
-    //     return redirect(route('admin.pages.hotel.danhsach'))->with('thongbao','Sửa thành công');
-    // }
-
-    // public function getXoaHotel($id){
-    //     $hotel = hotel::find($id);
-    //     $hotel->delete();
-    //     return redirect(route('admin.pages.hotel.danhsach'))->with('xoa','Xóa thành công');
-    // }
-
-    // //car
-    // public function getDanhSachCar(){
-    //     $car = Car::orderBy('id','DESC')->get();
-    //     return view('admin.pages.car.danhsach',['car'=>$car]);
-    // }
-
-    // public function getThemCar(){
-    //     return view('admin.pages.car.them');
-    // }
-
-    // public function postThemCar(CarRequest $request){
-    //     $car = new car;
-    //     $car->todo = $request->todo;
-    //     $car->title = $request->title;
-    //     $car->description = $request->description;
-    //     $car->keyword = $request->keyword;
-    //     $car->noiDung = $request->noiDung;
-    //     $file = $request->file('img');
-
-    //     if ($file !="") {
-    //         $img = $file->store("/", ['disk'=>'upload']);
-    //         $car->img=$img;
-    //     }
-    //     else{
-    //         $car->img="defau.png";
-    //     }
-    //     $car->save();
-    //     return redirect(route('admin.pages.car.danhsach'))->with('thongbao','Thêm thành công');
-    // }
-
-    // public function getSuaCar($id){
-    //     $car = car::find($id);
-    //     return view('admin.pages.car.sua',['car'=>$car]);
-    // }
-
-    // public function postSuaCar(CarSuaRequest $request,$id){
-    //     $car = car::find($id);
-    //     $car->todo = $request->todo;
-    //     $car->title = $request->title;
-    //     $car->description = $request->description;
-    //     $car->keyword = $request->keyword;
-    //     $car->noiDung = $request->noiDung;
-    //     $file = $request->file('img');
-
-    //     if ($file !="") {
-    //         $img = $file->store("/", ['disk'=>'upload']);
-    //         // unlink(public_path()."/upload/".$car->img);
-    //         $car->img=$img;
-    //     }
-
-    //     $car->save();
-    //     return redirect(route('admin.pages.car.danhsach'))->with('thongbao','Sửa thành công');
-    // }
-
-    // public function getXoaCar($id){
-    //     $car = car::find($id);
-    //     $car->delete();
-    //     return redirect(route('admin.pages.car.danhsach'))->with('xoa','Xóa thành công');
-    // }
 
     public function login(){
         return view('admin.login.login');

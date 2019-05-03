@@ -6,6 +6,8 @@ namespace App\Providers;
 // use App\travel;
 // use App\hotel;
 // use App\car;
+use App\loaisanpham;
+use App\items;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +29,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $loaisanpham = loaisanpham::all();
+        view::share('loaisanpham',$loaisanpham);
+
+        $mathang = items::all();
+        view::share('mathang',$mathang);
+
+
         // $loaitin = loaitin::all();
         // $tintuc = tin::orderBy('id','DESC')->offset(5)->limit(3)->get();
         // $dulich = travel::where('khuyenMai',1)->orderBy('id','DESC')->limit(3)->get();

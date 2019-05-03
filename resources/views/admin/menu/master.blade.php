@@ -82,6 +82,12 @@
                      </a>
                   </li>
                   <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.pages.items.danhsach') }}">
+                        <span class="menu-title">Loại Mặt Hàng</span>
+                        <i class="mdi mdi-sitemap menu-icon"></i>
+                        </a>
+                     </li>
+                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('admin.pages.sanpham.danhsach') }}">
                      <span class="menu-title">Sản Phẩm</span>
                      <i class="mdi mdi-webhook menu-icon"></i>
@@ -94,7 +100,7 @@
                         </a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ route('admin.pages.tin.danhsach') }}">
                         <span class="menu-title">Tin Tức</span>
                         <i class="mdi mdi-newspaper menu-icon"></i>
                         </a>

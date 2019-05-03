@@ -32,27 +32,42 @@
                            <th>Hình</th>
                            <th>Giá</th>
                            <th>Loại Sản Phẩm</th>
+                           <th>Loại Mặt Hàng</th>
                            <th>Sửa</th>
                            <th>Xóa</th>
                         </tr>
                      </thead>
                      <tbody>
-                        {{--  @foreach ($tin as $new)
+                        @foreach ($sanpham as $item)
                         <tr class="tr-shadow">
-                           <td>{{ $new->tieuDe }}</td>
+                           <td>{{ $item->tenSP }}</td>
                            <td>
-                              <img style="height:150px;width:150px" src="/upload/{{ $new->img }}" alt="lý sơn"/>
+                              <img style="height:150px;width:150px" src="/upload/{{ $item->img }}" alt="lý sơn"/>
                            </td>
-                           <td>{{ $new->maLoaiTin }}</td>
+                           <td style="color:red;">{{ number_format($item->gia) }} vnđ</td>
                            <td>
-                              <a href="{{ route('admin.pages.tin.sua',$new->id) }}" class="btn btn-outline-success btn-fw"> Sửa</a>
+                                @foreach ($loaisanpham as $lsp)
+                                    @if ($lsp->id == $item->maLoaiSanPham)
+                                        {{ $lsp->tenLoaiSanPham }}
+                                    @endif
+                                @endforeach
+                            </td>
+                           <td>
+                                @foreach ($mathang as $mh)
+                                    @if ($mh->id == $item->maSanPham)
+                                        {{ $mh->tenMatHang }}
+                                    @endif
+                                @endforeach
                            </td>
                            <td>
-                              <a href="{{ route('admin.pages.tin.xoa',$new->id) }}" class="btn btn-outline-danger btn-fw"> Xóa</a>
+                              <a href="{{ route('admin.pages.sanpham.sua',$item->id) }}" class="btn btn-outline-success btn-fw"> Sửa</a>
+                           </td>
+                           <td>
+                              <a href="{{ route('admin.pages.sanpham.xoa',$item->id) }}" class="btn btn-outline-danger btn-fw"> Xóa</a>
                            </td>
                         </tr>
                         <tr class="spacer"></tr>
-                        @endforeach  --}}
+                        @endforeach
                      </tbody>
                   </table>
                </div>

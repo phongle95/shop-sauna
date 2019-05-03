@@ -25,16 +25,11 @@
                      <input type="text" id="text-input" name="tieuDe" value="{{ old('tieuDe') }}" placeholder="Nhập tiêu đề" class="form-control">
                   </div>
                </div>
+
                <div class="row form-group">
                   <div class="col-12 col-md-12">
-                     <label class="badge badge-info">Title SEO</label><br><br>
-                     <input type="text" id="text-input" name="title" value="{{ old('title') }}" placeholder="Nhập title" class="form-control">
-                  </div>
-               </div>
-               <div class="row form-group">
-                  <div class="col-12 col-md-12">
-                     <label class="badge badge-info">Description</label><br>
-                     <input type="text" id="text-input" name="description" value="{{ old('description') }}" placeholder="Nhập description" class="form-control">
+                     <label class="badge badge-info">Tóm Tắt</label><br>
+                     <input type="text" id="text-input" name="tomTat" value="{{ old('tomTat') }}" placeholder="Nhập tóm tắt" class="form-control">
                   </div>
                </div>
                <div class="row form-group">
@@ -67,7 +62,7 @@
                      <label class="badge badge-info">Mã Tin Tức</label><br>
                      <select name="maLoaiTin" class="form-control">
                         @foreach ($loaitin as $lt)
-                        <option value="{{ $lt->maLoaiTin }}">{{ $lt->tenLoaiTin }}</option>
+                        <option value="{{ $lt->id }}">{{ $lt->tenLoaiTin }}</option>
                         @endforeach
                      </select>
                   </div>
