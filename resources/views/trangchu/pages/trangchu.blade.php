@@ -130,8 +130,8 @@
                         <div class="product">
                             <figure class="product-image-container">
 
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/xonghoiuot.jpg" alt="product">
+                                <a href="detail.html" class="product-image1">
+                                    <img src="https://hinhchuctet.com/wp-content/uploads/2018/09/hinh-gai-xinh-de-thuong-nhat-2.jpg" alt="product">
                                 </a>
                                 <span class="product-label label-sale">-20%</span>
                                 <span class="product-label label-hot">New</span>
@@ -175,7 +175,7 @@
                         <div class="product">
                             <figure class="product-image-container">
 
-                                <a href="detail.html" class="product-image">
+                                <a href="detail.html" class="product-image1">
                                     <img src="sauna/assets/images/products/xonghoiuot.jpg" alt="product">
                                 </a>
                             </figure>
@@ -365,8 +365,8 @@
                     <div class="new-products owl-carousel owl-theme">
                         <div class="product">
                             <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/xonghoikho.jpg" alt="product">
+                                <a href="detail.html" class="product-image2">
+                                    <img src="https://i.pinimg.com/originals/30/60/5a/30605a36231a5b7cd5ad0af4ee6774e3.jpg" alt="product">
                                 </a>
                             </figure>
                             <div class="product-details">

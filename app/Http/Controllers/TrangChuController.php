@@ -40,6 +40,14 @@ class TrangChuController extends Controller
         return view('trangchu.pages.sanpham');
     }
 
+    public function productDetail(){
+        return view('trangchu.pages.product-detail');
+    }
+
+    public function detailNew(){
+        return view('trangchu.pages.detail-new');
+    }
+
     // //hotel
     // public function hotel(){
     //     $travelkm = travel::where('khuyenMai',1)->orderBy('id','DESC')->limit(3)->get();

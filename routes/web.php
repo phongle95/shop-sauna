@@ -22,8 +22,15 @@ Route::get('',['uses'=>'TrangChuController@trangchu','as'=>'trangchu.pages.trang
 // //giới thiệu
 Route::get('gioi-thieu',['uses'=>'TrangChuController@gioithieu','as'=>'trangchu.pages.gioithieu']);
 
-//dịch vụ
+// sản phẩm
 Route::get('san-pham',['uses'=>'TrangChuController@sanpham','as'=>'trangchu.pages.sanpham']);
+
+// product detail
+Route::get('product-detail',['uses'=>'TrangChuController@productDetail','as'=>'trangchu.pages.product-detail']);
+
+// detail news
+Route::get('detail-new',['uses'=>'TrangChuController@detailNew','as'=>'trangchu.pages.detail-new']);
+
 // //hotel
 // Route::get('khach-san-ly-son',['uses'=>'TrangChuController@hotel','as'=>'trangchu.pages.hotel']);
 // //car

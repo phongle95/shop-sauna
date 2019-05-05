@@ -26,7 +26,6 @@
     <div class="page-wrapper">
         <header class="header">
 
-
             <div class="header-middle">
                 <div class="container">
                     <div class="header-left">
@@ -66,11 +65,9 @@
                     <!-- End .headeer-center -->
 
                     <div class="header-right">
-                            <button class="mobile-menu-toggler" type="button">
-                                    <i class="icon-menu"></i>
-                            </button>
-
-
+                        <button class="mobile-menu-toggler" type="button">
+                            <i class="icon-menu"></i>
+                        </button>
 
                         <div class="header-contact">
                             <span style="color:#fff;font-weight: 600;">Gọi Ngay</span>
@@ -161,29 +158,26 @@
                         <ul class="menu sf-arrows">
                             <li class="active"><a href="{{ route('trangchu.pages.trangchu') }}">Trang Chủ</a></li>
                             <li>
-                                    <a href="#" class="sf-with-ul">Danh Mục Sản Phẩm</a>
+                                <a href="#" class="sf-with-ul">Danh Mục Sản Phẩm</a>
 
-                                    <ul>
-                                        @foreach ($loaisanpham as $item)
+                                <ul>
+                                    @foreach ($loaisanpham as $item)
 
-                                        <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug($item->tenLoaiSanPham),'id'=>$item->id]) }}">{{ $item->tenLoaiSanPham }}</a>
+                                    <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug($item->tenLoaiSanPham),'id'=>$item->id]) }}">{{ $item->tenLoaiSanPham }}</a>
 
-                                            <ul>
-                                            @foreach ($mathang as $mh)
+                                        <ul>
+                                            @foreach ($mathang as $mh) @if ($item->id == $mh->maLoaiSanPham)
+                                            <li><a href="">{{ $mh->tenMatHang }}</a></li>
 
-                                                @if ($item->id == $mh->maLoaiSanPham)
-                                                <li><a href="">{{ $mh->tenMatHang }}</a></li>
+                                            @endif @endforeach
 
-                                                @endif
-                                            @endforeach
+                                        </ul>
 
-                                            </ul>
-
-                                        </li>
-                                        @endforeach
-                                        <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug('Phòng Xông Hơi Đá Muối Hymalaya'),'id'=>20]) }}">Phòng Xông Hơi Đá Muối Hymalaya</a></li>
-                                    </ul>
-                                </li>
+                                    </li>
+                                    @endforeach
+                                    <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug('Phòng Xông Hơi Đá Muối Hymalaya'),'id'=>20]) }}">Phòng Xông Hơi Đá Muối Hymalaya</a></li>
+                                </ul>
+                            </li>
                             <li>
                                 <a href="{{ route('trangchu.pages.gioithieu') }}">giới thiệu</a>
                             </li>
@@ -373,40 +367,45 @@
                 <ul class="mobile-menu">
                     <li class="active"><a href="{{ route('trangchu.pages.trangchu') }}">Trang Chủ</a></li>
                     <li>
-                        <a href="category.html">Danh Mục Sản Phẩm</a>
+                        <a href="">Danh Mục Sản Phẩm</a>
                         <ul>
-                            <li><a href="category.html">Full Width Banner</a></li>
-                            <li><a href="category-banner-boxed-slider.html">Boxed Slider Banner</a></li>
-                            <li><a href="category-banner-boxed-image.html">Boxed Image Banner</a></li>
-                            <li><a href="category.html">Left Sidebar</a></li>
-                            <li><a href="category-sidebar-right.html">Right Sidebar</a></li>
-                            <li><a href="category-flex-grid.html">Product Flex Grid</a></li>
-                            <li><a href="category-horizontal-filter1.html">Horizontal Filter 1</a></li>
-                            <li><a href="category-horizontal-filter2.html">Horizontal Filter 2</a></li>
-                            <li><a href="#">Product List Item Types</a></li>
-                            <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll<span class="tip tip-new">New</span></a></li>
-                            <li><a href="category.html">3 Columns Products</a></li>
-                            <li><a href="{{ route('trangchu.pages.sanpham') }}">4 Columns Products</a></li>
-                            <li><a href="category-5col.html">5 Columns Products</a></li>
-                            <li><a href="category-6col.html">6 Columns Products</a></li>
-                            <li><a href="category-7col.html">7 Columns Products</a></li>
-                            <li><a href="category-8col.html">8 Columns Products</a></li>
+                            @foreach ($loaisanpham as $item)
+
+                            <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug($item->tenLoaiSanPham),'id'=>$item->id]) }}">{{ $item->tenLoaiSanPham }}</a>
+
+                                <ul>
+                                    @foreach ($mathang as $mh) @if ($item->id == $mh->maLoaiSanPham)
+                                    <li><a href="">{{ $mh->tenMatHang }}</a></li>
+
+                                    @endif @endforeach
+
+                                </ul>
+
+                            </li>
+                            @endforeach
+                            <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug('Phòng Xông Hơi Đá Muối Hymalaya'),'id'=>20]) }}">Phòng Xông Hơi Đá Muối Hymalaya</a></li>
+
                         </ul>
                     </li>
                     <li>
-                        <a href="detail.html">Giới Thiệu</a>
-
+                        <a href="{{ route('trangchu.pages.gioithieu') }}">giới thiệu</a>
                     </li>
                     <li>
-                        <a href="#">Sản Phẩm</a>
-
+                        <a href="{{ route('trangchu.pages.sanpham') }}">sản phẩm</a>
                     </li>
-                    <li><a href="{{ route('trangchu.pages.tintuc') }}">Công Trình</a>
-
+                    <li>
+                        <a href="">công trình</a>
                     </li>
-                    <li><a href="contact.html">Khuyến Mãi</a></li>
-                    <li><a href="#">Tin Tức</a></li>
-                    <li><a href="#">Liên Hệ</a></li>
+
+                    <li>
+                        <a href="">khuyến mãi</a>
+                    </li>
+
+                    <li>
+                        <a href="">tuyển dụng</a>
+                    </li>
+                    <li><a href="{{ route('trangchu.pages.tintuc') }}">Tin Tức</a></li>
+                    <li><a href="{{ route('trangchu.pages.lienhe') }}">Liên Hệ</a></li>
                 </ul>
             </nav>
             <!-- End .mobile-nav -->
