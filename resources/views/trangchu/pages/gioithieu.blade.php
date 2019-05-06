@@ -15,7 +15,7 @@
         <div class="container">
             <ol class="breadcrumb mt-0">
                 <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                <li class="breadcrumb-item active" aria-current="page">Giới Thiệu</li>
             </ol>
         </div>
         <!-- End .container -->

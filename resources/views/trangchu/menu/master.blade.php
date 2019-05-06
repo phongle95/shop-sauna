@@ -185,15 +185,11 @@
                                 <a href="{{ route('trangchu.pages.sanpham') }}">sản phẩm</a>
                             </li>
                             <li>
-                                <a href="">công trình</a>
+                                <a href="{{ route('trangchu.pages.loaitin',['slug'=>str_slug('công trình'),'id'=>1]) }}">công trình</a>
                             </li>
 
                             <li>
-                                <a href="">khuyến mãi</a>
-                            </li>
-
-                            <li>
-                                <a href="">tuyển dụng</a>
+                                <a href="{{ route('trangchu.pages.loaitin',['slug'=>str_slug('tuyển dụng'),'id'=>3]) }}">tuyển dụng</a>
                             </li>
 
                             <li class="float-right"><a href="{{ route('trangchu.pages.lienhe') }}">liên hệ</a></li>
@@ -207,6 +203,8 @@
         </header>
         <!-- End .header -->
         @yield('noidung')
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=453100318560380&autoLogAppEvents=1"></script>
 
         <footer class="footer">
             <div class="container">
@@ -394,16 +392,12 @@
                         <a href="{{ route('trangchu.pages.sanpham') }}">sản phẩm</a>
                     </li>
                     <li>
-                        <a href="">công trình</a>
-                    </li>
+                            <a href="{{ route('trangchu.pages.loaitin',['slug'=>str_slug('công trình'),'id'=>1]) }}">công trình</a>
+                        </li>
 
-                    <li>
-                        <a href="">khuyến mãi</a>
-                    </li>
-
-                    <li>
-                        <a href="">tuyển dụng</a>
-                    </li>
+                        <li>
+                            <a href="{{ route('trangchu.pages.loaitin',['slug'=>str_slug('tuyển dụng'),'id'=>3]) }}">tuyển dụng</a>
+                        </li>
                     <li><a href="{{ route('trangchu.pages.tintuc') }}">Tin Tức</a></li>
                     <li><a href="{{ route('trangchu.pages.lienhe') }}">Liên Hệ</a></li>
                 </ul>

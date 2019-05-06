@@ -127,11 +127,13 @@
                     <h2 class="h3 title mb-4 text-center">Máy Xông Hơi Ướt</h2>
 
                     <div class="featured-products owl-carousel owl-theme">
+                        @foreach ($sanpham as $item)
+
                         <div class="product">
                             <figure class="product-image-container">
 
                                 <a href="detail.html" class="product-image1">
-                                    <img src="https://hinhchuctet.com/wp-content/uploads/2018/09/hinh-gai-xinh-de-thuong-nhat-2.jpg" alt="product">
+                                    <img src="upload/{{ $item->img }}" alt="máy xông hơi ướt">
                                 </a>
                                 <span class="product-label label-sale">-20%</span>
                                 <span class="product-label label-hot">New</span>
@@ -146,10 +148,10 @@
                                 </div>
                                 <!-- End .product-container -->
                                 <h2 class="product-title">
-                                    <a href="detail.html">Máy xông hơi ướt KINGSTEAM N45 (4,5KW)</a>
+                                    <a href="detail.html">{{ $item->tenSP }}</a>
                                 </h2>
                                 <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">8.000.000</strong> vnđ</span>
+                                    <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
                                 </div>
                                 <!-- End .price-box -->
 
@@ -172,181 +174,10 @@
                         </div>
                         <!-- End .product -->
 
-                        <div class="product">
-                            <figure class="product-image-container">
 
-                                <a href="detail.html" class="product-image1">
-                                    <img src="sauna/assets/images/products/xonghoiuot.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                        <a href="detail.html">Máy xông hơi ướt KINGSTEAM N45 (4,5KW)</a>
-                                    </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">8.000.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
+                        @endforeach
 
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
 
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-
-                        <div class="product">
-                            <figure class="product-image-container">
-
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/xonghoiuot.jpg" alt="product">
-                                </a>
-                                <span class="product-label label-sale">-20%</span>
-                                <span class="product-label label-hot">New</span>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                            <a href="detail.html">Máy xông hơi ướt KINGSTEAM N45 (4,5KW)</a>
-                                        </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">8.000.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-
-                        <div class="product">
-                            <figure class="product-image-container">
-
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/xonghoiuot.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                                <a href="detail.html">Máy xông hơi ướt KINGSTEAM N45 (4,5KW)</a>
-                                            </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">8.000.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-
-                        <div class="product">
-                            <figure class="product-image-container">
-
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/xonghoiuot.jpg" alt="product">
-                                </a>
-                                <span class="product-label label-sale">-20%</span>
-                                <span class="product-label label-hot">New</span>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                                    <a href="detail.html">Máy xông hơi ướt KINGSTEAM N45 (4,5KW)</a>
-                                                </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">8.000.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
 
                     </div>
                     <!-- End .featured-proucts -->
@@ -363,11 +194,15 @@
                     <h2 class="h3 title mb-4 text-center">Máy Xông Hơi Khô</h2>
 
                     <div class="new-products owl-carousel owl-theme">
+                        @foreach ($sanpham1 as $item)
+
                         <div class="product">
                             <figure class="product-image-container">
                                 <a href="detail.html" class="product-image2">
-                                    <img src="https://i.pinimg.com/originals/30/60/5a/30605a36231a5b7cd5ad0af4ee6774e3.jpg" alt="product">
+                                    <img src="upload/{{ $item->img }}" alt="máy xông hơi khô">
                                 </a>
+                                <span class="product-label label-sale">-20%</span>
+                                <span class="product-label label-hot">New</span>
                             </figure>
                             <div class="product-details">
                                 <div class="ratings-container">
@@ -379,10 +214,10 @@
                                 </div>
                                 <!-- End .product-container -->
                                 <h2 class="product-title">
-                                    <a href="detail.html">AMAZON SAM-B10 (10KW)</a>
+                                    <a href="detail.html">{{ $item->tenSP }}</a>
                                 </h2>
                                 <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">10.500.000</strong> vnđ</span>
+                                    <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
                                 </div>
                                 <!-- End .price-box -->
 
@@ -404,172 +239,8 @@
                         </div>
                         <!-- End .product -->
 
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/xonghoikho.jpg" alt="product">
-                                </a>
-                                <span class="product-label label-sale">-20%</span>
-                                <span class="product-label label-hot">New</span>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                        <a href="detail.html">AMAZON SAM-B10 (10KW)</a>
-                                    </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">10.500.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
+                        @endforeach
 
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/xonghoikho.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                            <a href="detail.html">AMAZON SAM-B10 (10KW)</a>
-                                        </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">10.500.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/xonghoikho.jpg" alt="product">
-                                </a>
-                                <span class="product-label label-sale">-20%</span>
-                                <span class="product-label label-hot">New</span>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                                <a href="detail.html">AMAZON SAM-B10 (10KW)</a>
-                                            </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">10.500.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/xonghoikho.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                                    <a href="detail.html">AMAZON SAM-B10 (10KW)</a>
-                                                </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">10.500.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
 
                     </div>
                     <!-- End .news-proucts -->
@@ -585,213 +256,52 @@
                     <h2 class="h3 title mb-4 text-center">Phòng Xông hơi Khô Sauna</h2>
 
                     <div class="new-products owl-carousel owl-theme">
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phongxonghoi.jpg" alt="product">
-                                </a>
-                                <span class="product-label label-sale">-20%</span>
-                                <span class="product-label label-hot">New</span>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
+                            @foreach ($sanpham2 as $item)
+
+                            <div class="product">
+                                <figure class="product-image-container">
+                                    <a href="detail.html" class="product-image2">
+                                        <img src="upload/{{ $item->img }}" alt="phòng xông hơi khô">
+                                    </a>
+
+                                </figure>
+                                <div class="product-details">
+                                    <div class="ratings-container">
+                                        <div class="product-ratings">
+                                            <span class="ratings" style="width:80%"></span>
+                                            <!-- End .ratings -->
+                                        </div>
+                                        <!-- End .product-ratings -->
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                    <a href="detail.html">PHÒNG XÔNG HƠI KHÔ KS - C129</a>
-                                </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">25.000.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phongxonghoi.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                        <a href="detail.html">PHÒNG XÔNG HƠI KHÔ KS - C129</a>
+                                    <!-- End .product-container -->
+                                    <h2 class="product-title">
+                                        <a href="detail.html">{{ $item->tenSP }}</a>
                                     </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">25.000.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phongxonghoi.jpg" alt="product">
-                                </a>
-                                <span class="product-label label-sale">-20%</span>
-                                <span class="product-label label-hot">New</span>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
+                                    <div class="price-box">
+                                        <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                            <a href="detail.html">PHÒNG XÔNG HƠI KHÔ KS - C129</a>
-                                        </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">25.000.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
+                                    <!-- End .price-box -->
 
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
+                                    <div class="product-action">
+                                        <a href="#" class="paction add-wishlist" title="Add to Wishlist">
+                                            <span>Add to Wishlist</span>
+                                        </a>
 
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phongxonghoi.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
+                                        <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
+                                            <span>Thêm Vào Giỏ</span>
+                                        </a>
+                                        <a href="#" class="paction add-compare" title="Add to Compare">
+                                            <span>Add to Compare</span>
+                                        </a>
                                     </div>
-                                    <!-- End .product-ratings -->
+                                    <!-- End .product-action -->
                                 </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                                <a href="detail.html">PHÒNG XÔNG HƠI KHÔ KS - C129</a>
-                                            </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">25.000.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
+                                <!-- End .product-details -->
                             </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
+                            <!-- End .product -->
 
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phongxonghoi.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                                    <a href="detail.html">PHÒNG XÔNG HƠI KHÔ KS - C129</a>
-                                                </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">25.000.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
+                            @endforeach
 
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
 
                     </div>
                     <!-- End .news-proucts -->
@@ -807,213 +317,52 @@
                     <h2 class="h3 title mb-4 text-center">Phòng Xông hơi hồng ngoại</h2>
 
                     <div class="new-products owl-carousel owl-theme">
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phonghongngoai.jpg" alt="product">
-                                </a>
-                                <span class="product-label label-sale">-20%</span>
-                                <span class="product-label label-hot">New</span>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
+                            @foreach ($sanpham3 as $item)
+
+                            <div class="product">
+                                <figure class="product-image-container">
+                                    <a href="detail.html" class="product-image2">
+                                        <img src="upload/{{ $item->img }}" alt="máy xông hơi khô">
+                                    </a>
+                                    <span class="product-label label-hot">New</span>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="ratings-container">
+                                        <div class="product-ratings">
+                                            <span class="ratings" style="width:80%"></span>
+                                            <!-- End .ratings -->
+                                        </div>
+                                        <!-- End .product-ratings -->
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                    <a href="detail.html">PHÒNG XÔNG HƠI HỒNG NGOẠI HS - 201A</a>
-                                </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">22.500.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phonghongngoai.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                        <a href="detail.html">PHÒNG XÔNG HƠI HỒNG NGOẠI HS - 201A</a>
+                                    <!-- End .product-container -->
+                                    <h2 class="product-title">
+                                        <a href="detail.html">{{ $item->tenSP }}</a>
                                     </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">22.500.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phonghongngoai.jpg" alt="product">
-                                </a>
-                                <span class="product-label label-sale">-20%</span>
-                                <span class="product-label label-hot">New</span>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
+                                    <div class="price-box">
+                                        <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
                                     </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                            <a href="detail.html">PHÒNG XÔNG HƠI HỒNG NGOẠI HS - 201A</a>
-                                        </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">22.500.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
+                                    <!-- End .price-box -->
 
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
+                                    <div class="product-action">
+                                        <a href="#" class="paction add-wishlist" title="Add to Wishlist">
+                                            <span>Add to Wishlist</span>
+                                        </a>
 
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
-
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phonghongngoai.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
+                                        <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
+                                            <span>Thêm Vào Giỏ</span>
+                                        </a>
+                                        <a href="#" class="paction add-compare" title="Add to Compare">
+                                            <span>Add to Compare</span>
+                                        </a>
                                     </div>
-                                    <!-- End .product-ratings -->
+                                    <!-- End .product-action -->
                                 </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                                <a href="detail.html">PHÒNG XÔNG HƠI HỒNG NGOẠI HS - 201A</a>
-                                            </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">22.500.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
-
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
+                                <!-- End .product-details -->
                             </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
+                            <!-- End .product -->
 
-                        <div class="product">
-                            <figure class="product-image-container">
-                                <a href="detail.html" class="product-image">
-                                    <img src="sauna/assets/images/products/phonghongngoai.jpg" alt="product">
-                                </a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <h2 class="product-title">
-                                                    <a href="detail.html">PHÒNG XÔNG HƠI HỒNG NGOẠI HS - 201A</a>
-                                                </h2>
-                                <div class="price-box">
-                                    <span class="product-price">Giá : <strong style="color:red">22.500.000</strong> vnđ</span>
-                                </div>
-                                <!-- End .price-box -->
+                            @endforeach
 
-                                <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
-                                        <span>Thêm Vào Giỏ</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
-                                </div>
-                                <!-- End .product-action -->
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <!-- End .product -->
 
                     </div>
                     <!-- End .news-proucts -->

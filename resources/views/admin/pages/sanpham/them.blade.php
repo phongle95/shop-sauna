@@ -75,7 +75,7 @@
                <div class="row form-group">
                   <div class="col-6 col-md-6">
                      <label class="badge badge-info">Loại Sản Phẩm</label><br>
-                     <select name="maLoaiSanPham" class="form-control">
+                     <select name="maLoaiSanPham" class="form-control" id="loaisanpham">
                         @foreach ($loaisanpham as $item)
                         <option value="{{ $item->id }}">{{ $item->tenLoaiSanPham }}</option>
                         @endforeach
@@ -83,8 +83,8 @@
                   </div>
                   <div class="col-6 col-md-6">
                         <label class="badge badge-info">Mặt Hàng</label><br>
-                        <select name="maSanPham" class="form-control">
-                            <option value="0">Không</option>
+                        <select name="maSanPham" class="form-control" id="mathang">
+                            {{-- <option value="0">Không</option> --}}
                            @foreach ($mathang as $item)
                            <option value="{{ $item->id }}">{{ $item->tenMatHang }}</option>
                            @endforeach
@@ -104,4 +104,18 @@
       </div>
    </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('#loaisanpham').change(function(){
+                var idmathang = $(this).val();
+                $.get('sauna-admin/ajax/mathang/'+idmathang,function(data){
+                    $('#mathang').html(data);
+                });
+            });
+        });
+
+    </script>
 @endsection

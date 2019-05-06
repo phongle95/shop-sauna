@@ -66,7 +66,7 @@ $config['images'] = array(
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => 'http://lysonvn.com/public/upload',
+    'baseUrl'      => 'http://127.0.0.1:8000/public/upload',
     // http://127.0.0.1:8000/public/upload
     // http://lysonvn.com/public/upload
 //  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.

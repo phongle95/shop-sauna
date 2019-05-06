@@ -6,7 +6,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-                <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                <li class="breadcrumb-item active" aria-current="page">Liên Hệ</li>
             </ol>
         </div>
         <!-- End .container -->

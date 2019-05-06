@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="/travel/images/logo.png">
 
     <!-- Title Page-->
-    <title>Login Travel Lý Sơn</title>
+    <title>Login Sauna</title>
 
     <!-- Fontfaces CSS-->
     <link href="/assetsadmin1/css/font-face.css" rel="stylesheet" media="all">

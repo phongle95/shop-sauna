@@ -196,5 +196,7 @@
              ckfinder / core / connector / php / connector.php ? command = QuickUpload & type = Flash ') }}'
          });
       </script>
+      @yield('script')
+
    </body>
 </html>

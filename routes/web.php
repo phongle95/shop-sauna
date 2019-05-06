@@ -39,11 +39,18 @@ Route::get('detail-new',['uses'=>'TrangChuController@detailNew','as'=>'trangchu.
 // //tin tức
 Route::get('tin-tuc',['uses'=>'TrangChuController@tintuc','as'=>'trangchu.pages.tintuc']);
 
+// công trình
+Route::get('cong-trinh',['uses'=>'TrangChuController@congtrinh','as'=>'trangchu.pages.congtrinh']);
+
+// công trình
+Route::get('tuyen-dung',['uses'=>'TrangChuController@tuyendung','as'=>'trangchu.pages.tuyendung']);
+
+
 // //liên hệ
 Route::get('lien-he',['uses'=>'TrangChuController@lienhe','as'=>'trangchu.pages.lienhe']);
 
-// //tim kiếm
-// Route::get('tim-kiem',['uses'=>'TrangChuController@timkiem','as'=>'trangchu.timkiem.news']);
+//tim kiếm
+Route::get('tim-kiem',['uses'=>'TrangChuController@timkiem','as'=>'trangchu.timkiem.news']);
 
 // //tàu lý sơn
 // Route::get('gia-ve-tau-ly-son',['uses'=>'TrangChuController@tauSupper','as'=>'trangchu.pages.taulyson']);
@@ -70,16 +77,16 @@ Route::get('lien-he',['uses'=>'TrangChuController@lienhe','as'=>'trangchu.pages.
 // ]);
 
 
-// Route::get('tin-tuc-{slug}_{id}.html', [
-//     'uses' => 'TrangChuController@chiTietNews',
-//     'as' => 'trangchu.chitiet.news'
-// ]);
+Route::get('tin-tuc-{slug}_{id}_{ma}.html', [
+    'uses' => 'TrangChuController@chiTietNews',
+    'as' => 'trangchu.chitiet.news'
+]);
 
 
-// Route::get('tin-tuc-{slug}_{id}', [
-//     'uses' => 'TrangChuController@loaiTin',
-//     'as' => 'trangchu.pages.loaitin'
-// ]);
+Route::get('{slug}_{id}', [
+    'uses' => 'TrangChuController@loaiTin',
+    'as' => 'trangchu.pages.loaitin'
+]);
 
 
 Route::get('danh-muc-san-pham-{slug}_{id}', [
@@ -321,10 +328,16 @@ Route::prefix('sauna-admin')->middleware('auth')->group(function() {
         ]);
     });
 
+    Route::group(['prefix' => 'ajax'], function () {
+        Route::get('mathang/{idmathang}','AjaxController@getMatHang');
+
+    });
+
 
 
 
 });
+
 
 
 

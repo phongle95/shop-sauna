@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Providers;
-// use App\tin;
-// use App\loaitin;
-// use App\travel;
-// use App\hotel;
-// use App\car;
+use App\news;
 use App\loaisanpham;
 use App\items;
+use App\sanpham;
+use App\loaitin;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 class AppServiceProvider extends ServiceProvider
@@ -35,16 +33,15 @@ class AppServiceProvider extends ServiceProvider
         $mathang = items::all();
         view::share('mathang',$mathang);
 
+        $sidebar = news::orderBy('id','DESC')->offset(1)->limit(3)->get();
+        view::share('sidebar',$sidebar);
 
-        // $loaitin = loaitin::all();
-        // $tintuc = tin::orderBy('id','DESC')->offset(5)->limit(3)->get();
-        // $dulich = travel::where('khuyenMai',1)->orderBy('id','DESC')->limit(3)->get();
-        // $nhanghi = hotel::orderBy('id','DESC')->limit(3)->get();
-        // $xe = car::orderBy('id','DESC')->limit(3)->get();
-        // view::share('tintuc',$tintuc);
-        // view::share('dulich',$dulich);
-        // view::share('nhanghi',$nhanghi);
-        // view::share('xe',$xe);
-        // view::share('loaitin',$loaitin);
+        $tag = loaitin::all();
+        view::share('tag',$tag);
+
+        $product = sanpham::where('maLoaiSanPham',1)->orderBy('id','DESC')->limit(3)->get();
+        view::share('product',$product);
+        $product1 = sanpham::where('maLoaiSanPham',2)->orderBy('id','DESC')->limit(3)->get();
+        view::share('product1',$product1);
     }
 }

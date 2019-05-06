@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\tin;
-use App\travel;
-use App\hotel;
-use App\car;
+use App\news;
 use App\loaitin;
 use App\loaisanpham;
 use App\sanpham;
@@ -18,12 +15,11 @@ class TrangChuController extends Controller
 {
     //trang chủ
     public function trangchu(){
-        // $travelkm = travel::where('khuyenMai',1)->orderBy('id','DESC')->limit(3)->get();
-        // $travel = travel::where('khuyenMai',0)->orderBy('id','DESC')->limit(4)->get();
-        // $hotel = hotel::orderBy('id','DESC')->limit(4)->get();
-        // $news = tin::orderBy('id','DESC')->limit(5)->get();
-        // $car = car::orderBy('id','DESC')->limit(3)->get();
-        return view('trangchu.pages.trangchu');
+        $sanpham = sanpham::where('maLoaiSanPham',1)->orderBy('id','DESC')->limit(5)->get();
+        $sanpham1 = sanpham::where('maLoaiSanPham',2)->orderBy('id','DESC')->limit(4)->get();
+        $sanpham2 = sanpham::where('maLoaiSanPham',3)->orderBy('id','DESC')->limit(4)->get();
+        $sanpham3 = sanpham::where('maLoaiSanPham',4)->orderBy('id','DESC')->limit(4)->get();
+        return view('trangchu.pages.trangchu',['sanpham'=>$sanpham,'sanpham1'=>$sanpham1,'sanpham2'=>$sanpham2,'sanpham3'=>$sanpham3]);
     }
 
     //Giới thiệu
@@ -33,11 +29,8 @@ class TrangChuController extends Controller
 
     //Sản phẩm
     public function sanpham(){
-        // $travelkm = travel::where('khuyenMai',1)->orderBy('id','DESC')->limit(3)->get();
-        // $travel = travel::where('khuyenMai',0)->orderBy('id','DESC')->limit(4)->get();
-        // $hotel = hotel::orderBy('id','DESC')->limit(4)->get();
-        // $car = car::orderBy('id','DESC')->limit(3)->get();
-        return view('trangchu.pages.sanpham');
+        $sanpham = sanpham::orderBy('id','DESC')->paginate(2);
+        return view('trangchu.pages.sanpham',['sanpham'=>$sanpham]);
     }
 
     public function productDetail(){
@@ -48,30 +41,24 @@ class TrangChuController extends Controller
         return view('trangchu.pages.detail-new');
     }
 
-    // //hotel
-    // public function hotel(){
-    //     $travelkm = travel::where('khuyenMai',1)->orderBy('id','DESC')->limit(3)->get();
-    //     $travel = travel::where('khuyenMai',0)->orderBy('id','DESC')->limit(4)->get();
-    //     $hotel = hotel::orderBy('id','DESC')->limit(4)->get();
-    //     $car = car::orderBy('id','DESC')->limit(3)->get();
-    //     return view('trangchu.pages.hotel',['travel'=>$travel,'hotel'=>$hotel,'travelkm'=>$travelkm,'car'=>$car]);
-    // }
-
-    // //car
-    // public function car(){
-    //     $travelkm = travel::where('khuyenMai',1)->orderBy('id','DESC')->limit(3)->get();
-    //     $travel = travel::where('khuyenMai',0)->orderBy('id','DESC')->limit(4)->get();
-    //     $hotel = hotel::orderBy('id','DESC')->limit(4)->get();
-    //     $car = car::orderBy('id','DESC')->limit(3)->get();
-    //     return view('trangchu.pages.car',['travel'=>$travel,'hotel'=>$hotel,'travelkm'=>$travelkm,'car'=>$car]);
-    // }
-
-    // //tin tuc
+    // tin tức
     public function tintuc(){
-        // $loaitin = loaitin::all();
-        // $tin = tin::orderBy('id','DESC')->paginate(5);
-        // $news = tin::orderBy('id','DESC')->offset(5)->limit(4)->get();
-        return view('trangchu.pages.tintuc');
+        $tin = news::where('maLoaiTin',4)->orderBy('id','DESC')->paginate(4);
+        return view('trangchu.pages.tintuc',['tin'=>$tin]);
+    }
+
+
+
+    // công trình
+    public function congtrinh(){
+        $tin = news::where('maLoaiTin',1)->orderBy('id','DESC')->paginate(4);
+        return view('trangchu.pages.congtrinh',['tin'=>$tin]);
+    }
+
+    // tuyển dụng
+    public function tuyendung(){
+        $tin = news::where('maLoaiTin',3)->orderBy('id','DESC')->paginate(4);
+        return view('trangchu.pages.tuyendung',['tin'=>$tin]);
     }
 
     //liên hệ
@@ -86,40 +73,19 @@ class TrangChuController extends Controller
         return view('trangchu.pages.listproduct',['sanpham'=>$sanpham]);
     }
 
-    // //chi tiết du lịch
-    // public function chiTietDuLich($slug, $id){
-    //     $travel = travel::where('khuyenMai',0)->orderBy('id','DESC')->limit(4)->get();
-    //     $chitiet = travel::find($id);
-    //     return view('trangchu.chitiet.travel',['chitiet'=>$chitiet,'travel'=>$travel]);
-    // }
 
-    // //chi tiết hotel
-    // public function chiTietHotel($slug,$id){
-    //     $hotel = hotel::orderBy('id','DESC')->limit(4)->get();
-    //     $chitiet = hotel::find($id);
-    //     return view('trangchu.chitiet.hotel',['chitiet'=>$chitiet,'hotel'=>$hotel]);
-    // }
+    public function chiTietNews($slug ,$id,$ma){
 
-    // public function chiTietCar($slug ,$id){
-    //     $car = car::orderBy('id','DESC')->limit(4)->get();
-    //     $chitiet = car::find($id);
-    //     return view('trangchu.chitiet.car',['chitiet'=>$chitiet,'car'=>$car]);
-    // }
+        $chitiet = news::find($id);
+        $news = news::where('maLoaiTin',$ma)->orderBy('id','DESC')->limit(4)->get();
+        return view('trangchu.chitiet.news',['chitiet'=>$chitiet,'news'=>$news]);
+    }
 
-    // public function chiTietNews($slug ,$id){
-    //     $loaitin = loaitin::all();
-    //     $chitiet = tin::find($id);
-    //     $news = tin::orderBy('id','DESC')->offset(5)->limit(4)->get();
-    //     return view('trangchu.chitiet.news',['chitiet'=>$chitiet,'news'=>$news,'loaitin'=>$loaitin]);
-    // }
-
-    // public function loaiTin($slug,$id){
-    //     // dd($slug);
-    //     $tin = tin::where('maLoaiTin',$id)->orderBy('id','DESC')->paginate(5);
-    //     $loaitin = loaitin::all();
-    //     $news = tin::orderBy('id','DESC')->offset(5)->limit(4)->get();
-    //     return view('trangchu.pages.loaitin',['tin'=>$tin,'loaitin'=>$loaitin,'news'=>$news]);
-    // }
+    public function loaiTin($slug,$id){
+        // dd($slug);
+        $tin = news::where('maLoaiTin',$id)->orderBy('id','DESC')->paginate(4);
+        return view('trangchu.pages.loaitin',['tin'=>$tin]);
+    }
 
 
 
@@ -141,14 +107,12 @@ class TrangChuController extends Controller
     //     return redirect()->route('trangchu.pages.trangchu')->with('thongbao','Đặt tour thành công');
     // }
 
-    // //tìm kiếm
-    // public function timkiem(Request $request){
-    //     $tukhoa = $request->tukhoa;
-    //     $loaitin = loaitin::all();
-    //     $news = tin::orderBy('id','DESC')->offset(5)->limit(4)->get();
-    //     $ketqua = tin::where('tieuDe','like','%'.$tukhoa.'%')->orwhere('description','like','%'.$tukhoa.'%')->paginate(5);
-    //     return view('trangchu.timkiem.news',['ketqua'=>$ketqua,'news'=>$news,'loaitin'=>$loaitin]);
-    // }
+    //tìm kiếm
+    public function timkiem(Request $request){
+        $tukhoa = $request->tukhoa;
+        $ketqua = news::where('tieuDe','like','%'.$tukhoa.'%')->orwhere('tomTat','like','%'.$tukhoa.'%')->paginate(4);
+        return view('trangchu.timkiem.news',['ketqua'=>$ketqua]);
+    }
 
 
     // public function tauSupper(){
