@@ -36,8 +36,7 @@ class AppServiceProvider extends ServiceProvider
         $sidebar = news::orderBy('id','DESC')->offset(1)->limit(3)->get();
         view::share('sidebar',$sidebar);
 
-        $tag = loaitin::all();
-        view::share('tag',$tag);
+
 
         $product = sanpham::where('maLoaiSanPham',1)->orderBy('id','DESC')->limit(3)->get();
         view::share('product',$product);

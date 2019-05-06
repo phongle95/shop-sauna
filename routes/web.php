@@ -12,10 +12,6 @@
 */
 
 
-// Route::any('home', function () {
-//     return view('trangchu.pages.trangchu');
-// });
-
 // //trang chủ
 Route::get('',['uses'=>'TrangChuController@trangchu','as'=>'trangchu.pages.trangchu']);
 
@@ -24,17 +20,6 @@ Route::get('gioi-thieu',['uses'=>'TrangChuController@gioithieu','as'=>'trangchu.
 
 // sản phẩm
 Route::get('san-pham',['uses'=>'TrangChuController@sanpham','as'=>'trangchu.pages.sanpham']);
-
-// product detail
-Route::get('product-detail',['uses'=>'TrangChuController@productDetail','as'=>'trangchu.pages.product-detail']);
-
-// detail news
-Route::get('detail-new',['uses'=>'TrangChuController@detailNew','as'=>'trangchu.pages.detail-new']);
-
-// //hotel
-// Route::get('khach-san-ly-son',['uses'=>'TrangChuController@hotel','as'=>'trangchu.pages.hotel']);
-// //car
-// Route::get('thue-xe-ly-son',['uses'=>'TrangChuController@car','as'=>'trangchu.pages.car']);
 
 // //tin tức
 Route::get('tin-tuc',['uses'=>'TrangChuController@tintuc','as'=>'trangchu.pages.tintuc']);
@@ -52,46 +37,26 @@ Route::get('lien-he',['uses'=>'TrangChuController@lienhe','as'=>'trangchu.pages.
 //tim kiếm
 Route::get('tim-kiem',['uses'=>'TrangChuController@timkiem','as'=>'trangchu.timkiem.news']);
 
-// //tàu lý sơn
-// Route::get('gia-ve-tau-ly-son',['uses'=>'TrangChuController@tauSupper','as'=>'trangchu.pages.taulyson']);
-
-// //máy bay
-// Route::get('dat-ve-may-bay',['uses'=>'TrangChuController@maybay','as'=>'trangchu.pages.maybay']);
-
-
-// Route::get('du-lich-{slug}_{id}.html', [
-//     'uses' => 'TrangChuController@chiTietDuLich',
-//     'as' => 'trangchu.chitiet.travel'
-// ]);
-
-
-// Route::get('khach-san-{slug}_{id}.html', [
-//     'uses' => 'TrangChuController@chiTietHotel',
-//     'as' => 'trangchu.chitiet.hotel'
-// ]);
-
-
-// Route::get('thue-xe-tu-{slug}_{id}.html', [
-//     'uses' => 'TrangChuController@chiTietCar',
-//     'as' => 'trangchu.chitiet.car'
-// ]);
-
-
 Route::get('tin-tuc-{slug}_{id}_{ma}.html', [
     'uses' => 'TrangChuController@chiTietNews',
     'as' => 'trangchu.chitiet.news'
 ]);
 
 
-Route::get('{slug}_{id}', [
-    'uses' => 'TrangChuController@loaiTin',
-    'as' => 'trangchu.pages.loaitin'
-]);
+// Route::get('{slug}_{id}', [
+//     'uses' => 'TrangChuController@loaiTin',
+//     'as' => 'trangchu.pages.loaitin'
+// ]);
 
 
 Route::get('danh-muc-san-pham-{slug}_{id}', [
     'uses' => 'TrangChuController@listProduct',
     'as' => 'trangchu.pages.listproduct'
+]);
+
+Route::get('san-pham-{name}_{id}_{ma}.html', [
+    'uses' => 'TrangChuController@productDetail',
+    'as' => 'trangchu.chitiet.product'
 ]);
 
 
@@ -138,13 +103,6 @@ Route::get('logout', [
     'uses' => 'AdminController@logout',
     'as' => 'admin.logout'
 ]);
-
-// Route::group(['prefix' => 'chi-tiet'], function () {
-
-
-
-// });
-
 
 
 Route::prefix('sauna-admin')->middleware('auth')->group(function() {

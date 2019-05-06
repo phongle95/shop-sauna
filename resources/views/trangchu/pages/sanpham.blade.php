@@ -30,7 +30,7 @@
                             <div class="product">
                                 <figure class="product-image-container">
 
-                                    <a href="detail.html" class="product-image3">
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image3">
                                         <img src="upload/{{ $item->img }}" alt="máy xông hơi">
                                     </a>
                                     <span class="product-label label-sale">-20%</span>
@@ -46,7 +46,7 @@
                                     </div>
                                     <!-- End .product-container -->
                                     <h2 class="product-title">
-                                                <a href="detail.html">{{ $item->tenSP }}</a>
+                                                <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
                                             </h2>
                                     <div class="price-box">
                                         <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
@@ -144,180 +144,80 @@
                             <h3 class="widget-title">Sản Phẩm Bán Chạy</h3>
 
                             <div class="widget-body">
-                                <div class="owl-carousel widget-featured-products">
-                                    <div class="featured-col">
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img style="height:70px;" src="https://i.pinimg.com/originals/30/60/5a/30605a36231a5b7cd5ad0af4ee6774e3.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Ring</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:80%"></span>
-                                                        <!-- End .ratings -->
-                                                    </div>
-                                                    <!-- End .product-ratings -->
-                                                </div>
-                                                <!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$45.00</span>
-                                                </div>
-                                                <!-- End .price-box -->
-                                            </div>
-                                            <!-- End .product-details -->
-                                        </div>
-                                        <!-- End .product -->
+                                    <div class="owl-carousel widget-featured-products">
+                                        <div class="featured-col">
+                                            @foreach ($product as $item)
 
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="sauna/assets/images/products/small/product-2.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Headphone</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:20%"></span>
-                                                        <!-- End .ratings -->
+                                            <div class="product product-sm">
+                                                <figure class="product-image-container">
+                                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image">
+                                                        <img style="height:70px" src="upload/{{ $item->img }}" alt="máy xông hơi">
+                                                    </a>
+                                                </figure>
+                                                <div class="product-details">
+                                                    <h2 class="product-title">
+                                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
+                                                    </h2>
+                                                    <div class="ratings-container">
+                                                        <div class="product-ratings">
+                                                            <span class="ratings" style="width:80%"></span>
+                                                            <!-- End .ratings -->
+                                                        </div>
+                                                        <!-- End .product-ratings -->
                                                     </div>
-                                                    <!-- End .product-ratings -->
+                                                    <!-- End .product-container -->
+                                                    <div class="price-box">
+                                                        <span style="color:red" class="product-price">{{ number_format($item->gia) }} vnđ</span>
+                                                    </div>
+                                                    <!-- End .price-box -->
                                                 </div>
-                                                <!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="old-price">$60.00</span>
-                                                    <span class="product-price">$45.00</span>
-                                                </div>
-                                                <!-- End .price-box -->
+                                                <!-- End .product-details -->
                                             </div>
-                                            <!-- End .product-details -->
-                                        </div>
-                                        <!-- End .product -->
+                                            <!-- End .product -->
+                                            @endforeach
 
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="sauna/assets/images/products/small/product-3.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Shoes</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:100%"></span>
-                                                        <!-- End .ratings -->
-                                                    </div>
-                                                    <!-- End .product-ratings -->
-                                                </div>
-                                                <!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$50.00</span>
-                                                </div>
-                                                <!-- End .price-box -->
-                                            </div>
-                                            <!-- End .product-details -->
+
                                         </div>
-                                        <!-- End .product -->
+                                        <!-- End .featured-col -->
+
+                                        <div class="featured-col">
+                                                @foreach ($product1 as $item)
+
+                                                <div class="product product-sm">
+                                                    <figure class="product-image-container">
+                                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image">
+                                                            <img style="height:70px" src="upload/{{ $item->img }}" alt="máy xông hơi">
+                                                        </a>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h2 class="product-title">
+                                                            <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
+                                                        </h2>
+                                                        <div class="ratings-container">
+                                                            <div class="product-ratings">
+                                                                <span class="ratings" style="width:80%"></span>
+                                                                <!-- End .ratings -->
+                                                            </div>
+                                                            <!-- End .product-ratings -->
+                                                        </div>
+                                                        <!-- End .product-container -->
+                                                        <div class="price-box">
+                                                            <span style="color:red" class="product-price">{{ number_format($item->gia) }} vnđ</span>
+                                                        </div>
+                                                        <!-- End .price-box -->
+                                                    </div>
+                                                    <!-- End .product-details -->
+                                                </div>
+                                                <!-- End .product -->
+                                                @endforeach
+
+
+                                        </div>
+                                        <!-- End .featured-col -->
                                     </div>
-                                    <!-- End .featured-col -->
-
-                                    <div class="featured-col">
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="sauna/assets/images/products/small/product-4.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Watch-Black</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:100%"></span>
-                                                        <!-- End .ratings -->
-                                                    </div>
-                                                    <!-- End .product-ratings -->
-                                                </div>
-                                                <!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="old-price">$50.00</span>
-                                                    <span class="product-price">$35.00</span>
-                                                </div>
-                                                <!-- End .price-box -->
-                                            </div>
-                                            <!-- End .product-details -->
-                                        </div>
-                                        <!-- End .product -->
-
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="sauna/assets/images/products/small/product-5.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Watch-Gray</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:60%"></span>
-                                                        <!-- End .ratings -->
-                                                    </div>
-                                                    <!-- End .product-ratings -->
-                                                </div>
-                                                <!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$29.00</span>
-                                                </div>
-                                                <!-- End .price-box -->
-                                            </div>
-                                            <!-- End .product-details -->
-                                        </div>
-                                        <!-- End .product -->
-
-                                        <div class="product product-sm">
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="sauna/assets/images/products/small/product-6.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Hat</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:20%"></span>
-                                                        <!-- End .ratings -->
-                                                    </div>
-                                                    <!-- End .product-ratings -->
-                                                </div>
-                                                <!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$40.00</span>
-                                                </div>
-                                                <!-- End .price-box -->
-                                            </div>
-                                            <!-- End .product-details -->
-                                        </div>
-                                        <!-- End .product -->
-                                    </div>
-                                    <!-- End .featured-col -->
+                                    <!-- End .widget-featured-slider -->
                                 </div>
-                                <!-- End .widget-featured-slider -->
-                            </div>
-                            <!-- End .widget-body -->
+                                <!-- End .widget-body -->
                         </div>
                         <!-- End .widget -->
 

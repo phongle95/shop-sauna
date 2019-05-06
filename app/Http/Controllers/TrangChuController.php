@@ -19,7 +19,8 @@ class TrangChuController extends Controller
         $sanpham1 = sanpham::where('maLoaiSanPham',2)->orderBy('id','DESC')->limit(4)->get();
         $sanpham2 = sanpham::where('maLoaiSanPham',3)->orderBy('id','DESC')->limit(4)->get();
         $sanpham3 = sanpham::where('maLoaiSanPham',4)->orderBy('id','DESC')->limit(4)->get();
-        return view('trangchu.pages.trangchu',['sanpham'=>$sanpham,'sanpham1'=>$sanpham1,'sanpham2'=>$sanpham2,'sanpham3'=>$sanpham3]);
+        $tintuc = news::orderBy('id','DESC')->limit(4)->get();
+        return view('trangchu.pages.trangchu',['sanpham'=>$sanpham,'sanpham1'=>$sanpham1,'sanpham2'=>$sanpham2,'sanpham3'=>$sanpham3,'tintuc'=>$tintuc]);
     }
 
     //Giới thiệu
@@ -33,9 +34,6 @@ class TrangChuController extends Controller
         return view('trangchu.pages.sanpham',['sanpham'=>$sanpham]);
     }
 
-    public function productDetail(){
-        return view('trangchu.pages.product-detail');
-    }
 
     public function detailNew(){
         return view('trangchu.pages.detail-new');
@@ -81,11 +79,19 @@ class TrangChuController extends Controller
         return view('trangchu.chitiet.news',['chitiet'=>$chitiet,'news'=>$news]);
     }
 
-    public function loaiTin($slug,$id){
-        // dd($slug);
-        $tin = news::where('maLoaiTin',$id)->orderBy('id','DESC')->paginate(4);
-        return view('trangchu.pages.loaitin',['tin'=>$tin]);
+    public function productDetail($name ,$id,$ma){
+
+        $chitiet = sanpham::find($id);
+        $sanpham = sanpham::where('maLoaiSanPham',$ma)->orderBy('id','DESC')->limit(4)->get();
+        return view('trangchu.chitiet.product',['chitiet'=>$chitiet,'sanpham'=>$sanpham]);
     }
+
+
+    // public function loaiTin($slug,$id){
+    //     // dd($slug);
+    //     $tin = news::where('maLoaiTin',$id)->orderBy('id','DESC')->paginate(4);
+    //     return view('trangchu.pages.loaitin',['tin'=>$tin]);
+    // }
 
 
 

@@ -40,21 +40,7 @@
 
         </ul>
     </div>
-    <!-- End .widget -->
 
-    <div class="widget">
-            <h2><span class="badge badge-warning" style="color:#fff;">Tag</span></h2>
-
-        <div class="tagcloud">
-           @foreach ($tag as $item)
-
-            <a href="{{ route('trangchu.pages.loaitin',['slug'=>str_slug($item->tenLoaiTin),'id'=>$item->id]) }}">{{ $item->tenLoaiTin }}</a>
-           @endforeach
-
-        </div>
-        <!-- End .tagcloud -->
-    </div>
-    <!-- End .widget -->
 
     <div class="widget">
 
@@ -65,15 +51,17 @@
                     <div class="widget-body">
                         <div class="owl-carousel widget-featured-products">
                             <div class="featured-col">
+                                @foreach ($product as $item)
+
                                 <div class="product product-sm">
                                     <figure class="product-image-container">
-                                        <a href="product.html" class="product-image">
-                                            <img style="height:70px" src="https://i.pinimg.com/originals/30/60/5a/30605a36231a5b7cd5ad0af4ee6774e3.jpg" alt="product">
+                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image">
+                                            <img style="height:70px" src="upload/{{ $item->img }}" alt="máy xông hơi">
                                         </a>
                                     </figure>
                                     <div class="product-details">
                                         <h2 class="product-title">
-                                            <a href="product.html">Ring</a>
+                                            <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
                                         </h2>
                                         <div class="ratings-container">
                                             <div class="product-ratings">
@@ -84,46 +72,49 @@
                                         </div>
                                         <!-- End .product-container -->
                                         <div class="price-box">
-                                            <span class="product-price">$45.00</span>
+                                            <span style="color:red" class="product-price">{{ number_format($item->gia) }} vnđ</span>
                                         </div>
                                         <!-- End .price-box -->
                                     </div>
                                     <!-- End .product-details -->
                                 </div>
                                 <!-- End .product -->
+                                @endforeach
 
 
                             </div>
                             <!-- End .featured-col -->
 
                             <div class="featured-col">
-                                <div class="product product-sm">
-                                    <figure class="product-image-container">
-                                        <a href="product.html" class="product-image">
-                                            <img src="sauna/assets/images/products/small/product-4.jpg" alt="product">
-                                        </a>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h2 class="product-title">
-                                            <a href="product.html">Watch-Black</a>
-                                        </h2>
-                                        <div class="ratings-container">
-                                            <div class="product-ratings">
-                                                <span class="ratings" style="width:100%"></span>
-                                                <!-- End .ratings -->
+                                    @foreach ($product1 as $item)
+
+                                    <div class="product product-sm">
+                                        <figure class="product-image-container">
+                                            <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image">
+                                                <img style="height:70px" src="upload/{{ $item->img }}" alt="máy xông hơi">
+                                            </a>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h2 class="product-title">
+                                                <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
+                                            </h2>
+                                            <div class="ratings-container">
+                                                <div class="product-ratings">
+                                                    <span class="ratings" style="width:80%"></span>
+                                                    <!-- End .ratings -->
+                                                </div>
+                                                <!-- End .product-ratings -->
                                             </div>
-                                            <!-- End .product-ratings -->
+                                            <!-- End .product-container -->
+                                            <div class="price-box">
+                                                <span style="color:red" class="product-price">{{ number_format($item->gia) }} vnđ</span>
+                                            </div>
+                                            <!-- End .price-box -->
                                         </div>
-                                        <!-- End .product-container -->
-                                        <div class="price-box">
-                                            <span class="old-price">$50.00</span>
-                                            <span class="product-price">$35.00</span>
-                                        </div>
-                                        <!-- End .price-box -->
+                                        <!-- End .product-details -->
                                     </div>
-                                    <!-- End .product-details -->
-                                </div>
-                                <!-- End .product -->
+                                    <!-- End .product -->
+                                    @endforeach
 
 
                             </div>

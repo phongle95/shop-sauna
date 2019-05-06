@@ -132,7 +132,7 @@
                         <div class="product">
                             <figure class="product-image-container">
 
-                                <a href="detail.html" class="product-image1">
+                                <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image1">
                                     <img src="upload/{{ $item->img }}" alt="máy xông hơi ướt">
                                 </a>
                                 <span class="product-label label-sale">-20%</span>
@@ -148,7 +148,7 @@
                                 </div>
                                 <!-- End .product-container -->
                                 <h2 class="product-title">
-                                    <a href="detail.html">{{ $item->tenSP }}</a>
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
                                 </h2>
                                 <div class="price-box">
                                     <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
@@ -160,7 +160,7 @@
                                         <span>Add to Wishlist</span>
                                     </a>
 
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-cart" title="Thêm vào giỏ">
                                         <span>Thêm Vào Giỏ</span>
                                     </a>
 
@@ -198,7 +198,7 @@
 
                         <div class="product">
                             <figure class="product-image-container">
-                                <a href="detail.html" class="product-image2">
+                                <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image2">
                                     <img src="upload/{{ $item->img }}" alt="máy xông hơi khô">
                                 </a>
                                 <span class="product-label label-sale">-20%</span>
@@ -214,7 +214,7 @@
                                 </div>
                                 <!-- End .product-container -->
                                 <h2 class="product-title">
-                                    <a href="detail.html">{{ $item->tenSP }}</a>
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
                                 </h2>
                                 <div class="price-box">
                                     <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
@@ -226,7 +226,7 @@
                                         <span>Add to Wishlist</span>
                                     </a>
 
-                                    <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-cart" title="Thêm vào giỏ">
                                         <span>Thêm Vào Giỏ</span>
                                     </a>
                                     <a href="#" class="paction add-compare" title="Add to Compare">
@@ -260,7 +260,7 @@
 
                             <div class="product">
                                 <figure class="product-image-container">
-                                    <a href="detail.html" class="product-image2">
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image2">
                                         <img src="upload/{{ $item->img }}" alt="phòng xông hơi khô">
                                     </a>
 
@@ -275,7 +275,7 @@
                                     </div>
                                     <!-- End .product-container -->
                                     <h2 class="product-title">
-                                        <a href="detail.html">{{ $item->tenSP }}</a>
+                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
                                     </h2>
                                     <div class="price-box">
                                         <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
@@ -287,7 +287,7 @@
                                             <span>Add to Wishlist</span>
                                         </a>
 
-                                        <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
+                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-cart" title="Thêm vào giỏ">
                                             <span>Thêm Vào Giỏ</span>
                                         </a>
                                         <a href="#" class="paction add-compare" title="Add to Compare">
@@ -321,7 +321,7 @@
 
                             <div class="product">
                                 <figure class="product-image-container">
-                                    <a href="detail.html" class="product-image2">
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image2">
                                         <img src="upload/{{ $item->img }}" alt="máy xông hơi khô">
                                     </a>
                                     <span class="product-label label-hot">New</span>
@@ -336,7 +336,7 @@
                                     </div>
                                     <!-- End .product-container -->
                                     <h2 class="product-title">
-                                        <a href="detail.html">{{ $item->tenSP }}</a>
+                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
                                     </h2>
                                     <div class="price-box">
                                         <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
@@ -348,7 +348,7 @@
                                             <span>Add to Wishlist</span>
                                         </a>
 
-                                        <a href="detail.html" class="paction add-cart" title="Thêm vào giỏ">
+                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-cart" title="Thêm vào giỏ">
                                             <span>Thêm Vào Giỏ</span>
                                         </a>
                                         <a href="#" class="paction add-compare" title="Add to Compare">
@@ -486,105 +486,35 @@
                     <h2 class="h3 title text-center">Tin Tức</h2>
 
                     <div class="blog-carousel owl-carousel owl-theme">
+                        @foreach ($tintuc as $item)
+
                         <article class="entry">
                             <div class="entry-media">
-                                <a href="single.html">
-                                    <img style="width:100%;height: 210px;" src="sauna/assets/images/blog/tt.jpg" alt="Post">
+                                <a href="{{ route('trangchu.chitiet.news',['slug'=>str_slug($item->tieuDe),'id'=>$item->id,'ma'=>$item->maLoaiTin]) }}">
+                                    <img style="width:100%;height: 210px;" src="upload/{{ $item->img }}" alt="tin tức xông hơi">
                                 </a>
-                                <div class="entry-date">29<span>Now</span></div>
+                                <div class="entry-date">{{ date("d", strtotime($item->date)) }}<span>{{ date("m", strtotime($item->date)) }}</span></div>
                                 <!-- End .entry-date -->
                             </div>
                             <!-- End .entry-media -->
 
                             <div class="entry-body">
                                 <h3 class="entry-title">
-                                    <a href="single.html">PHÒNG XÔNG HƠI KHÔ SAUNA CHO GYM TUẤN ANH - ĐÀ NẴNG</a>
+                                    <a href="{{ route('trangchu.chitiet.news',['slug'=>str_slug($item->tieuDe),'id'=>$item->id,'ma'=>$item->maLoaiTin]) }}">{{ $item->tieuDe }}</a>
                                 </h3>
                                 <div class="entry-content">
-                                    <p>Sau khi đã đạt được thoả thuận giữa đôi bên chúng tôi tiến hành khảo sát mặt bằng tư vấn cho khách hàng và chuẩn bị vật tư, trong khoảng thời gian 1 tuần chúng tôi đã hoàn thành xong</p>
+                                    <p>{{ $item->tomTat }}</p>
 
-                                    <a href="single.html" class="btn btn-dark">Đọc Thêm</a>
+                                    <a href="{{ route('trangchu.chitiet.news',['slug'=>str_slug($item->tieuDe),'id'=>$item->id,'ma'=>$item->maLoaiTin]) }}" class="btn btn-dark">Đọc Thêm</a>
                                 </div>
                                 <!-- End .entry-content -->
                             </div>
                             <!-- End .entry-body -->
                         </article>
                         <!-- End .entry -->
+                        @endforeach
 
-                        <article class="entry">
-                            <div class="entry-media">
-                                <a href="single.html">
-                                    <img style="width:100%;height: 210px;" src="sauna/assets/images/blog/tt.jpg" alt="Post">
-                                </a>
-                                <div class="entry-date">29<span>Now</span></div>
-                                <!-- End .entry-date -->
-                            </div>
-                            <!-- End .entry-media -->
 
-                            <div class="entry-body">
-                                <h3 class="entry-title">
-                                        <a href="single.html">PHÒNG XÔNG HƠI KHÔ SAUNA CHO GYM TUẤN ANH - ĐÀ NẴNG</a>
-                                    </h3>
-                                <div class="entry-content">
-                                    <p>Sau khi đã đạt được thoả thuận giữa đôi bên chúng tôi tiến hành khảo sát mặt bằng tư vấn cho khách hàng và chuẩn bị vật tư, trong khoảng thời gian 1 tuần chúng tôi đã hoàn thành xong</p>
-
-                                    <a href="single.html" class="btn btn-dark">Đọc Thêm</a>
-                                </div>
-                                <!-- End .entry-content -->
-                            </div>
-                            <!-- End .entry-body -->
-                        </article>
-                        <!-- End .entry -->
-
-                        <article class="entry">
-                            <div class="entry-media">
-                                <a href="single.html">
-                                    <img style="width:100%;height: 210px;" src="sauna/assets/images/blog/tt.jpg" alt="Post">
-                                </a>
-                                <div class="entry-date">29<span>Now</span></div>
-                                <!-- End .entry-date -->
-                            </div>
-                            <!-- End .entry-media -->
-
-                            <div class="entry-body">
-                                <h3 class="entry-title">
-                                            <a href="single.html">PHÒNG XÔNG HƠI KHÔ SAUNA CHO GYM TUẤN ANH - ĐÀ NẴNG</a>
-                                        </h3>
-                                <div class="entry-content">
-                                    <p>Sau khi đã đạt được thoả thuận giữa đôi bên chúng tôi tiến hành khảo sát mặt bằng tư vấn cho khách hàng và chuẩn bị vật tư, trong khoảng thời gian 1 tuần chúng tôi đã hoàn thành xong</p>
-
-                                    <a href="single.html" class="btn btn-dark">Đọc Thêm</a>
-                                </div>
-                                <!-- End .entry-content -->
-                            </div>
-                            <!-- End .entry-body -->
-                        </article>
-                        <!-- End .entry -->
-
-                        <article class="entry">
-                            <div class="entry-media">
-                                <a href="single.html">
-                                    <img style="width:100%;height: 210px;" src="sauna/assets/images/blog/tt.jpg" alt="Post">
-                                </a>
-                                <div class="entry-date">29<span>Now</span></div>
-                                <!-- End .entry-date -->
-                            </div>
-                            <!-- End .entry-media -->
-
-                            <div class="entry-body">
-                                <h3 class="entry-title">
-                                                <a href="single.html">PHÒNG XÔNG HƠI KHÔ SAUNA CHO GYM TUẤN ANH - ĐÀ NẴNG</a>
-                                            </h3>
-                                <div class="entry-content">
-                                    <p>Sau khi đã đạt được thoả thuận giữa đôi bên chúng tôi tiến hành khảo sát mặt bằng tư vấn cho khách hàng và chuẩn bị vật tư, trong khoảng thời gian 1 tuần chúng tôi đã hoàn thành xong</p>
-
-                                    <a href="single.html" class="btn btn-dark">Đọc Thêm</a>
-                                </div>
-                                <!-- End .entry-content -->
-                            </div>
-                            <!-- End .entry-body -->
-                        </article>
-                        <!-- End .entry -->
 
                     </div>
                     <!-- End .blog-carousel -->

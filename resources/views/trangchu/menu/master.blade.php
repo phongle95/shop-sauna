@@ -185,12 +185,12 @@
                                 <a href="{{ route('trangchu.pages.sanpham') }}">sản phẩm</a>
                             </li>
                             <li>
-                                <a href="{{ route('trangchu.pages.loaitin',['slug'=>str_slug('công trình'),'id'=>1]) }}">công trình</a>
-                            </li>
+                                    <a href="{{ route('trangchu.pages.congtrinh') }}">công trình</a>
+                                </li>
 
-                            <li>
-                                <a href="{{ route('trangchu.pages.loaitin',['slug'=>str_slug('tuyển dụng'),'id'=>3]) }}">tuyển dụng</a>
-                            </li>
+                                <li>
+                                    <a href="{{ route('trangchu.pages.tuyendung') }}">tuyển dụng</a>
+                                </li>
 
                             <li class="float-right"><a href="{{ route('trangchu.pages.lienhe') }}">liên hệ</a></li>
                             <li class="float-right"><a href="{{ route('trangchu.pages.tintuc') }}">tin tức</a></li>
@@ -392,11 +392,11 @@
                         <a href="{{ route('trangchu.pages.sanpham') }}">sản phẩm</a>
                     </li>
                     <li>
-                            <a href="{{ route('trangchu.pages.loaitin',['slug'=>str_slug('công trình'),'id'=>1]) }}">công trình</a>
+                            <a href="{{ route('trangchu.pages.congtrinh') }}">công trình</a>
                         </li>
 
                         <li>
-                            <a href="{{ route('trangchu.pages.loaitin',['slug'=>str_slug('tuyển dụng'),'id'=>3]) }}">tuyển dụng</a>
+                            <a href="{{ route('trangchu.pages.tuyendung') }}">tuyển dụng</a>
                         </li>
                     <li><a href="{{ route('trangchu.pages.tintuc') }}">Tin Tức</a></li>
                     <li><a href="{{ route('trangchu.pages.lienhe') }}">Liên Hệ</a></li>
