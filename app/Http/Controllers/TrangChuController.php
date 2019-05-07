@@ -30,7 +30,7 @@ class TrangChuController extends Controller
 
     //Sản phẩm
     public function sanpham(){
-        $sanpham = sanpham::orderBy('id','DESC')->paginate(2);
+        $sanpham = sanpham::orderBy('id','DESC')->paginate(8);
         return view('trangchu.pages.sanpham',['sanpham'=>$sanpham]);
     }
 
@@ -67,8 +67,14 @@ class TrangChuController extends Controller
 
     // danh sach san pham
     public function listProduct($slug,$id){
-        $sanpham = sanpham::where('maLoaiSanPham',$id)->orderBy('id','DESC')->limit(4)->get();
+        $sanpham = sanpham::where('maLoaiSanPham',$id)->orderBy('id','DESC')->paginate(8);
         return view('trangchu.pages.listproduct',['sanpham'=>$sanpham]);
+    }
+
+    // danh sach mat hang
+    public function matHang($name,$id){
+        $data = sanpham::where('maSanPham',$id)->orderBy('id','DESC')->paginate(8);
+        return view('trangchu.pages.mathang',['data'=>$data]);
     }
 
 
@@ -113,19 +119,18 @@ class TrangChuController extends Controller
     //     return redirect()->route('trangchu.pages.trangchu')->with('thongbao','Đặt tour thành công');
     // }
 
-    //tìm kiếm
+    //tìm kiếm tin tức
     public function timkiem(Request $request){
         $tukhoa = $request->tukhoa;
         $ketqua = news::where('tieuDe','like','%'.$tukhoa.'%')->orwhere('tomTat','like','%'.$tukhoa.'%')->paginate(4);
         return view('trangchu.timkiem.news',['ketqua'=>$ketqua]);
     }
 
+      //tìm kiếm sản phẩm
+      public function searchProduct(Request $request){
+        $tukhoa = $request->tukhoa;
+        $ketqua = sanpham::where('tenSP','like','%'.$tukhoa.'%')->paginate(8);
+        return view('trangchu.timkiem.product',['ketqua'=>$ketqua]);
+    }
 
-    // public function tauSupper(){
-    //     return view('trangchu.pages.taulyson');
-    // }
-
-    // public function maybay(){
-    //     return view('trangchu.pages.maybay');
-    // }
 }

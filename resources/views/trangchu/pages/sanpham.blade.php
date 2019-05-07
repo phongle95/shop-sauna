@@ -103,7 +103,7 @@
                                             <ul class="cat-list">
                                                 @foreach ($loaisanpham as $item)
 
-                                                <li><a href="#">{{ $item->tenLoaiSanPham }}</a></li>
+                                                <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug($item->tenLoaiSanPham),'id'=>$item->id]) }}">{{ $item->tenLoaiSanPham }}</a></li>
 
                                                 @endforeach
 
@@ -125,7 +125,7 @@
                                                 <ul class="cat-list">
                                                     @foreach ($mathang as $item)
 
-                                                    <li><a href="#">{{ $item->tenMatHang }}</a></li>
+                                                    <li><a href="{{ route('trangchu.pages.mathang',['slug'=>str_slug($item->tenMatHang),'id'=>$item->id]) }}">{{ $item->tenMatHang }}</a></li>
 
                                                     @endforeach
 

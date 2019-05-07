@@ -38,9 +38,9 @@
                     <div class="header-center">
                         <div class="header-search">
                             <a href="#" class="search-toggle" role="button"><i class="icon-magnifier"></i></a>
-                            <form action="#" method="get">
+                            <form action="{{ route('trangchu.timkiem.product') }}" method="get">
                                 <div class="header-search-wrapper">
-                                    <input type="search" class="form-control" name="q" id="q" placeholder="Bạn cần tìm gì ?" required>
+                                    <input type="search" class="form-control" name="tukhoa" id="q" placeholder="Bạn cần tìm gì ?" required>
                                     <div class="select-custom">
                                         <select id="cat" name="cat">
                                             <option value="">Tất Cả Danh Mục</option>
@@ -167,7 +167,7 @@
 
                                         <ul>
                                             @foreach ($mathang as $mh) @if ($item->id == $mh->maLoaiSanPham)
-                                            <li><a href="">{{ $mh->tenMatHang }}</a></li>
+                                            <li><a href="{{ route('trangchu.pages.mathang',['name'=>str_slug($mh->tenMatHang),'id'=>$mh->id]) }}">{{ $mh->tenMatHang }}</a></li>
 
                                             @endif @endforeach
 

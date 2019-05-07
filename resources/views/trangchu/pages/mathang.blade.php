@@ -13,7 +13,7 @@
             <div class="container">
                 <ol class="breadcrumb mt-0">
                     <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item">Sản Phẩm</li>
+                    <li class="breadcrumb-item">Sản Phẩm abc</li>
                 </ol>
             </div>
             <!-- End .container -->
@@ -24,7 +24,7 @@
                 <div class="col-lg-9">
 
                     <div class="row row-sm">
-                        @foreach ($sanpham as $item)
+                        @foreach ($data as $item)
 
                         <div class="col-6 col-md-4 col-xl-3">
                             <div class="product">
@@ -83,7 +83,7 @@
 
                         <ul class="pagination">
 
-                            <li class="page-item">{!! $sanpham->links() !!}</li>
+                            <li class="page-item">{!! $data->links() !!}</li>
 
 
                         </ul>
@@ -125,7 +125,7 @@
                                                 <ul class="cat-list">
                                                     @foreach ($mathang as $item)
 
-                                                    <li><a href="{{ route('trangchu.pages.mathang',['slug'=>str_slug($item->tenMatHang),'id'=>$item->id]) }}">{{ $item->tenMatHang }}</a></li>
+                                                    <li><a href="{{ route('trangchu.pages.mathang',['name'=>str_slug($item->tenMatHang),'id'=>$item->id]) }}">{{ $item->tenMatHang }}</a></li>
 
                                                     @endforeach
 

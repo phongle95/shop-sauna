@@ -34,8 +34,11 @@ Route::get('tuyen-dung',['uses'=>'TrangChuController@tuyendung','as'=>'trangchu.
 // //liên hệ
 Route::get('lien-he',['uses'=>'TrangChuController@lienhe','as'=>'trangchu.pages.lienhe']);
 
-//tim kiếm
+//tim kiếm tin tức
 Route::get('tim-kiem',['uses'=>'TrangChuController@timkiem','as'=>'trangchu.timkiem.news']);
+
+//tim kiếm sản phẩm
+Route::get('tim-kiem-san-pham',['uses'=>'TrangChuController@searchProduct','as'=>'trangchu.timkiem.product']);
 
 Route::get('tin-tuc-{slug}_{id}_{ma}.html', [
     'uses' => 'TrangChuController@chiTietNews',
@@ -48,10 +51,16 @@ Route::get('tin-tuc-{slug}_{id}_{ma}.html', [
 //     'as' => 'trangchu.pages.loaitin'
 // ]);
 
-
-Route::get('danh-muc-san-pham-{slug}_{id}', [
+// danh sách sản phẩm
+Route::get('{slug}.{id}.html', [
     'uses' => 'TrangChuController@listProduct',
     'as' => 'trangchu.pages.listproduct'
+]);
+
+// danh sách mặt hàng
+Route::get('san-pham-{name}={id}.html', [
+    'uses' => 'TrangChuController@matHang',
+    'as' => 'trangchu.pages.mathang'
 ]);
 
 Route::get('san-pham-{name}_{id}_{ma}.html', [
