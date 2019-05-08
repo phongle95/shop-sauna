@@ -76,16 +76,43 @@
                         <!-- End .header-contact -->
 
                         <div class="dropdown cart-dropdown">
-                            @if (Session::get('cart'))
-                            <a href="{{ route('trangchu.pages.cart') }}" class="dropdown-toggle">
-                                    <span class="cart-count">{{ count(Session::get('cart')) }}</span>
-                            </a>
-                            @else
-                            <a id="result" href="{{ route('trangchu.pages.cart') }}" class="dropdown-toggle">
-                                    <span class="cart-count">0</span>
-                            </a>
-                            @endif
 
+                            <a id="result" href="{{ route('trangchu.pages.cart') }}" class="dropdown-toggle">
+                                    <span id="count" class="cart-count">
+                                    <script>
+                                        function refreshCart(){
+                                            var decodedCookie = decodeURIComponent(document.cookie);
+                                            var soLuong = 0;
+                                            var ca = decodedCookie.split(";");
+                                            for(var i = 0; i < ca.length; i++) {
+                                                if(ca[i].indexOf('soLuong')>0){
+                                                    soLuong ++ ;
+                                                }
+                                            }
+                                            document.getElementById("count").innerHTML = soLuong;
+                                        }
+
+                                            // var decodedCookie = decodeURIComponent(document.cookie);
+                                            // var soLuong = 0;
+                                            // var ca = decodedCookie.split(";");
+                                            // for(var i = 0; i < ca.length; i++) {
+                                            //     if(ca[i].indexOf('soLuong')>0){
+                                            //         soLuong ++ ;
+                                            //     }
+                                            // }
+
+                                            // var data = document.getElementById("count").innerHTML;
+                                            // if(soLuong!==data){
+                                            //     document.getElementById("count").innerHTML = soLuong;
+                                            // }
+
+
+                                        refreshCart();
+
+
+                                    </script>
+                                    </span>
+                            </a>
 
 
                         </div>

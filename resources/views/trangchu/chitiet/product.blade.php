@@ -81,20 +81,114 @@
 
                                 <div class="product-action product-all-icons">
                                     <div class="product-single-qty">
-                                        <input class="horizontal-quantity form-control" type="text">
+                                        <input id="cart" class="horizontal-quantity form-control" type="text">
                                     </div>
                                     <!-- End .product-single-qty -->
 
-                                    <a href="cart.html" class="paction add-cart" title="Add to Cart">
-                                        <span>Add to Cart</span>
+                                    <a href="" onClick="thayDoi({{ $chitiet }})" class="paction add-cart" title="Add to Cart">
+                                        <span>Thêm Vào Giỏ</span>
                                     </a>
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
-                                        <span>Add to Wishlist</span>
-                                    </a>
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
-                                        <span>Add to Compare</span>
-                                    </a>
+
                                 </div>
+
+                                <script>
+                                    //  function addCart(item){
+                                    //     // kiem tra so luong co chua
+                                    //     if(item.soLuong === undefined || item.soLuong === null){
+                                    //         item.soLuong = 1;
+                                    //     }
+
+                                    //     var value = JSON.stringify(item);
+                                    //     console.log('truoc',value,item.id)
+                                    //     if(getCookie(item.id)===""){
+                                    //         // chua ton tai thi them vao gio hang
+                                    //         setCookie(item.id, value, 1);
+                                    //     } else {
+                                    //         // cap nhat so luong
+                                    //         var oldItem = JSON.parse(getCookie(item.id));
+                                    //         item.soLuong += oldItem.soLuong;
+
+                                    //         // xoa thang cu
+                                    //         deleteCookie(item.id);
+
+                                    //         // them thang moi
+                                    //         value = JSON.stringify(item);
+                                    //         setCookie(item.id, value, 1);
+                                    //     }
+                                    //     console.log('sau',getCookie(item.id));
+                                    // }
+
+                                    function thayDoi(chitiet){
+                                        var sl = document.getElementById("cart").value;
+
+
+                                        // kiem tra so luong co chua
+                                        if(chitiet.soLuong === undefined || chitiet.soLuong === null){
+                                            chitiet.soLuong = 1;
+                                        }
+                                        var value = JSON.stringify(chitiet);
+
+
+                                        console.log('truoc',value,chitiet.soLuong)
+                                        if(getCookie(chitiet.id)===""){
+                                            // chua ton tai thi them vao gio hang
+                                            setCookie(chitiet.id, value, 1);
+                                        } else {
+                                            // cap nhat so luong
+                                            var oldItem = JSON.parse(getCookie(chitiet.id));
+                                            chitiet.soLuong = Number(Number(oldItem.soLuong)+Number(sl));
+
+                                            // xoa thang cu
+                                            deleteCookie(chitiet.id);
+
+                                            // them thang moi
+                                            value = JSON.stringify(chitiet);
+                                            setCookie(chitiet.id, value, 1);
+                                        }
+                                        console.log('sau',value,chitiet.soLuong)
+                                    }
+
+
+                                    function deleteCookie(cname) {
+                                        document.cookie = cname + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                                    }
+
+                                    function setCookie(cname,cvalue,exdays) {
+                                    var d = new Date();
+                                    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                                    var expires = "expires=" + d.toGMTString();
+                                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                                    }
+
+                                    function getCookie(cname) {
+                                    var name = cname + "=";
+                                    var decodedCookie = decodeURIComponent(document.cookie);
+                                    var ca = decodedCookie.split(';');
+                                    for(var i = 0; i < ca.length; i++) {
+                                        var c = ca[i];
+                                        while (c.charAt(0) == ' ') {
+                                        c = c.substring(1);
+                                        }
+                                        if (c.indexOf(name) == 0) {
+                                        return c.substring(name.length, c.length);
+                                        }
+                                    }
+                                    return "";
+                                    }
+
+                                    function checkCookie() {
+                                    var user=getCookie("username");
+                                    if (user != "") {
+                                        alert("Welcome again " + user);
+                                    } else {
+                                        user = prompt("Please enter your name:","");
+                                        if (user != "" && user != null) {
+                                        setCookie("username", user, 30);
+                                        }
+                                    }
+                                    }
+
+                                </script>
                                 <!-- End .product-action -->
 
                                 <div class="product-single-share">

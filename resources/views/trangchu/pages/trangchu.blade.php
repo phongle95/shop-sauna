@@ -160,7 +160,7 @@
                                         <span>Add to Wishlist</span>
                                     </a>
 
-                                    <a  href="{{ route('trangchu.pages.them',$item->id) }}" class="paction add-cart" title="Thêm vào giỏ">
+                                    <a  onclick="addCart({{ $item }})" href="" class="paction add-cart" title="Thêm vào giỏ">
                                         <span>Thêm Vào Giỏ</span>
                                     </a>
 
@@ -538,3 +538,94 @@
 <meta itemprop="description" content="lysonvn là kênh thông tin online hổ trợ đặt tour , đặt phòng khách sạn cho thuê xe giá rẻ khi đi du lịch lý sơn , đà nẵng , hội an , huế và nhận đặt vé tàu khi đi lý sơn" />
 <meta itemprop="image" content="travel/images/dulich.jpg" />
 <meta name="og:url" content="{{ route('trangchu.pages.trangchu') }}" /> @endsection
+
+
+<script>
+    function getDataCart(){
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            if(ca[i].indexOf('soLuong')>0){
+                var item = JSON.parse(ca[i].substring(ca[i].indexOf('=')+1));
+                console.log('item',item);
+            }
+        }
+    }
+
+    function addCart(data){
+        var item = {
+            id: data.id,
+            img: data.img,
+            tenSP: data.tenSP,
+            gia: data.gia,
+            soLuong: data.soLuong
+        };
+
+        // kiem tra so luong co chua
+        if(item.soLuong === undefined || item.soLuong === null){
+            item.soLuong = 1;
+        }
+
+        var value = JSON.stringify(item);
+        console.log('truoc',value,item.id)
+        if(getCookie(item.id)===""){
+            // chua ton tai thi them vao gio hang
+            setCookie(item.id, value, 1);
+        } else {
+            // cap nhat so luong
+            console.log('asdf',getCookie(item.id));
+
+            var oldItem = JSON.parse(getCookie(item.id));
+            item.soLuong += oldItem.soLuong;
+
+            // xoa thang cu
+            deleteCookie(item.id);
+
+            // them thang moi
+            value = JSON.stringify(item);
+            setCookie(item.id, value, 1);
+        }
+        console.log('sau',getCookie(item.id));
+    }
+
+    function deleteCookie(cname) {
+        document.cookie = cname + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+
+    function setCookie(cname,cvalue,exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires=" + d.toGMTString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      console.log('decodedCookie',decodedCookie);
+
+      var ca = decodedCookie.split(";");
+      for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    function checkCookie() {
+      var user=getCookie("username");
+      if (user != "") {
+        alert("Welcome again " + user);
+      } else {
+         user = prompt("Please enter your name:","");
+         if (user != "" && user != null) {
+           setCookie("username", user, 30);
+         }
+      }
+    }
+</script>
