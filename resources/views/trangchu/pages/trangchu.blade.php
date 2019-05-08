@@ -156,15 +156,15 @@
                                 <!-- End .price-box -->
 
                                 <div class="product-action">
-                                    <a href="#" class="paction add-wishlist" title="Add to Wishlist">
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-wishlist" title="chi tiết sản phẩm">
                                         <span>Add to Wishlist</span>
                                     </a>
 
-                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-cart" title="Thêm vào giỏ">
+                                    <a  href="{{ route('trangchu.pages.them',$item->id) }}" class="paction add-cart" title="Thêm vào giỏ">
                                         <span>Thêm Vào Giỏ</span>
                                     </a>
 
-                                    <a href="#" class="paction add-compare" title="Add to Compare">
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-compare" title="chi tiết sản phẩm">
                                         <span>Add to Compare</span>
                                     </a>
                                 </div>
@@ -226,7 +226,7 @@
                                         <span>Add to Wishlist</span>
                                     </a>
 
-                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-cart" title="Thêm vào giỏ">
+                                    <a href="{{ route('trangchu.pages.them',$item->id) }}" class="paction add-cart" title="Thêm vào giỏ">
                                         <span>Thêm Vào Giỏ</span>
                                     </a>
                                     <a href="#" class="paction add-compare" title="Add to Compare">
@@ -382,7 +382,7 @@
                                 <i class="icon-earphones-alt"></i>
 
                                 <div class="feature-box-content">
-                                    <h3>Customer Support<span>Need Assistence?</span></h3>
+                                    <h3>Hổ Trợ khách hàng<span>Need Assistence?</span></h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapib.</p>
                                 </div>
                                 <!-- End .feature-box-content -->
@@ -396,7 +396,7 @@
                                 <i class="icon-credit-card"></i>
 
                                 <div class="feature-box-content">
-                                    <h3>secured payment <span>Safe & Fast</span></h3>
+                                    <h3>Thanh Toán Online <span>Safe & Fast</span></h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapibus lacus. Lorem ipsum dolor sit amet.consectetur adipiscing elit. </p>
                                 </div>
                                 <!-- End .feature-box-content -->
@@ -410,7 +410,7 @@
                                 <i class="icon-action-undo"></i>
 
                                 <div class="feature-box-content">
-                                    <h3>Returns <span>Easy & Free</span></h3>
+                                    <h3>Mua Hàng <span>Easy & Free</span></h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapibus lacus.</p>
                                 </div>
                                 <!-- End .feature-box-content -->
@@ -428,7 +428,7 @@
             <div class="promo-section" style="background-image: url(sauna/assets/images/sauna4.jpg)">
                 <div class="container">
                     <h3>hàng chính hãng không lo về giá </h3>
-                    <a href="category-4col.html" class="btn btn-dark">Sản Phẩm</a>
+                    <a href="{{ route('trangchu.pages.sanpham') }}" class="btn btn-dark">Sản Phẩm</a>
                 </div>
                 <!-- End .container -->
             </div>

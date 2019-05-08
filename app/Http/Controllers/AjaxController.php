@@ -13,4 +13,8 @@ class AjaxController extends Controller
             echo " <option value='".$mh->id."'> ".$mh->tenMatHang." </option>";
         }
     }
+
+    public function addcart(Request $request){
+        return 1;
+    }
 }

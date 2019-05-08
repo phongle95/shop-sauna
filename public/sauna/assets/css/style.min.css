@@ -828,7 +828,6 @@ a:focus {
 	font-family: 'porto';
 	font-size: 1.4rem;
 	line-height: 1;
-	content: '\e81c'
 }
 
 .cart-dropdown .dropdown-menu {
@@ -4211,8 +4210,8 @@ label {
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.focus {
-	border-color: #00a3f5;
-	background-color: #00a3f5;
+	border-color: #ffbb33;
+	background-color: #ffbb33;
 	color: #fff;
 	box-shadow: none
 }

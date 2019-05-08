@@ -87,10 +87,23 @@ Route::get('san-pham-{name}_{id}_{ma}.html', [
 //     'as' => 'front.email'
 // ]);
 
+// danh sách giỏ hàng
+Route::get('danh-sach', [
+    'uses' => 'TrangChuController@cart',
+    'as' => 'trangchu.pages.cart'
+]);
+
+// thêm sản phẩm giỏ hàng
+Route::get('them-san-pham,{id}', [
+    'uses' => 'TrangChuController@addCart',
+    'as' => 'trangchu.pages.them'
+]);
 
 
-
-
+Route::post('ajax/addcart', [
+    'uses' => 'AjaxController@addcart',
+    'as' => 'ajax.index.addcart'
+]);
 
 
 
@@ -112,6 +125,7 @@ Route::get('logout', [
     'uses' => 'AdminController@logout',
     'as' => 'admin.logout'
 ]);
+
 
 
 Route::prefix('sauna-admin')->middleware('auth')->group(function() {

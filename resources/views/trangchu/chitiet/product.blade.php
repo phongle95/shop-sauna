@@ -69,7 +69,7 @@
                                 <!-- End .product-container -->
 
                                 <div class="price-box">
-                                    <span style="color:red;" class="product-price">Giá :{{ number_format($chitiet->gia) }} vnđ</span>
+                                    <span style="color:red;" class="product-price">Giá : {{ number_format($chitiet->gia) }} vnđ</span>
                                 </div>
                                 <!-- End .price-box -->
 
@@ -151,15 +151,15 @@
                         <ul>
                             <li>
                                 <i class="icon-shipping"></i>
-                                <h4>FREE<br>SHIPPING</h4>
+                                <h4>GIAO HÀNG <br> FREE</h4>
                             </li>
                             <li>
                                 <i class="icon-us-dollar"></i>
-                                <h4>100% MONEY<br>BACK GUARANTEE</h4>
+                                <h4>HOÀN TIỀN 100%<br>NẾU HÀNG GIẢ</h4>
                             </li>
                             <li>
                                 <i class="icon-online-support"></i>
-                                <h4>ONLINE<br>SUPPORT 24/7</h4>
+                                <h4>ONLINE<br>HỔ TRỢ 24/7</h4>
                             </li>
                         </ul>
                     </div>
@@ -168,7 +168,7 @@
                     <div class="widget widget-banner">
                         <div class="banner banner-image">
                             <a href="#">
-                                <img src="sauna/assets/images/banners/banner-sidebar.jpg" alt="Banner Desc">
+                                <img src="sauna/assets/images/banners/khuyenmai.jpg" alt="hình khuyến mãi">
                             </a>
                         </div>
                         <!-- End .banner -->

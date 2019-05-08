@@ -92,13 +92,19 @@ class TrangChuController extends Controller
         return view('trangchu.chitiet.product',['chitiet'=>$chitiet,'sanpham'=>$sanpham]);
     }
 
+    //tìm kiếm tin tức
+    public function timkiem(Request $request){
+        $tukhoa = $request->tukhoa;
+        $ketqua = news::where('tieuDe','like','%'.$tukhoa.'%')->orwhere('tomTat','like','%'.$tukhoa.'%')->paginate(4);
+        return view('trangchu.timkiem.news',['ketqua'=>$ketqua]);
+    }
 
-    // public function loaiTin($slug,$id){
-    //     // dd($slug);
-    //     $tin = news::where('maLoaiTin',$id)->orderBy('id','DESC')->paginate(4);
-    //     return view('trangchu.pages.loaitin',['tin'=>$tin]);
-    // }
-
+      //tìm kiếm sản phẩm
+      public function searchProduct(Request $request){
+        $tukhoa = $request->tukhoa;
+        $ketqua = sanpham::where('tenSP','like','%'.$tukhoa.'%')->paginate(8);
+        return view('trangchu.timkiem.product',['ketqua'=>$ketqua]);
+    }
 
 
     // //liên hệ send email
@@ -119,18 +125,39 @@ class TrangChuController extends Controller
     //     return redirect()->route('trangchu.pages.trangchu')->with('thongbao','Đặt tour thành công');
     // }
 
-    //tìm kiếm tin tức
-    public function timkiem(Request $request){
-        $tukhoa = $request->tukhoa;
-        $ketqua = news::where('tieuDe','like','%'.$tukhoa.'%')->orwhere('tomTat','like','%'.$tukhoa.'%')->paginate(4);
-        return view('trangchu.timkiem.news',['ketqua'=>$ketqua]);
+
+
+    public function cart(){
+
+        return view('trangchu.pages.cart');
     }
 
-      //tìm kiếm sản phẩm
-      public function searchProduct(Request $request){
-        $tukhoa = $request->tukhoa;
-        $ketqua = sanpham::where('tenSP','like','%'.$tukhoa.'%')->paginate(8);
-        return view('trangchu.timkiem.product',['ketqua'=>$ketqua]);
+
+    public function addCart(Request $request, $id, $soluong){
+        $cart = [];
+        $sessions = $request->session()->get('cart');
+        if($sessions){
+           foreach($sessions as $session){
+               if($session->id == $id){
+                    $session->soluong += $soluong;
+               }
+           }
+        }
+        $sanpham = sanpham::find($id);
+
+        if($sanpham == ""){
+            return redirect()->route('trangchu.pages.trangchu');
+        }
+
+        $cart = array([
+            'id' => $sanpham->id,
+            'tenSP'=> $sanpham->tenSP,
+            'img'=> $sanpham->img,
+            'gia'=> $sanpham->gia,
+        ]);
+
+        $request->session()->put('cart', $cart);
+        return redirect()->back();
     }
 
 }
