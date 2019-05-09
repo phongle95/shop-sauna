@@ -85,7 +85,7 @@
                                     </div>
                                     <!-- End .product-single-qty -->
 
-                                    <a href="" onClick="thayDoi({{ $chitiet }})" class="paction add-cart" title="Add to Cart">
+                                    <a href="#" onClick="thayDoi({{ $chitiet }})" class="paction add-cart" title="Add to Cart">
                                         <span>Thêm Vào Giỏ</span>
                                     </a>
 
@@ -119,8 +119,9 @@
                                     // }
 
                                     function thayDoi(data){
-
+                                        //so luong
                                         var sl = document.getElementById("cart").value;
+
                                         var chitiet = {
                                             id: data.id,
                                             img: data.img,
@@ -136,15 +137,18 @@
                                         var value = JSON.stringify(chitiet);
 
 
-                                        console.log('truoc',value,chitiet.soLuong)
                                         if(getCookie(chitiet.id)===""){
                                             // chua ton tai thi them vao gio hang
+                                            chitiet.soLuong = 0;
+                                            chitiet.soLuong += Number(sl);
+
+                                            value = JSON.stringify(chitiet);
+
                                             setCookie(chitiet.id, value, 1);
                                         } else {
                                             // cap nhat so luong
                                             var oldItem = JSON.parse(getCookie(chitiet.id));
                                             chitiet.soLuong = Number(Number(oldItem.soLuong)+Number(sl));
-
                                             // xoa thang cu
                                             deleteCookie(chitiet.id);
 
@@ -152,7 +156,6 @@
                                             value = JSON.stringify(chitiet);
                                             setCookie(chitiet.id, value, 1);
                                         }
-                                        console.log('sau',value,chitiet.soLuong)
                                     }
 
 

@@ -96,19 +96,7 @@
 	margin-bottom: 2.7rem
 }
 
-.home-slider::after,
-.home-slider::before {
-	position: absolute;
-	top: calc(50% - 2rem);
-	left: calc(50% - 2rem);
-	width: 40px;
-	height: 40px;
-	border: 2px solid transparent;
-	border-radius: 50%;
-	border-top-color: #08c;
-	border-image: none;
-	content: ''
-}
+
 
 .home-slider::before {
 	-webkit-animation: spin 1s infinite ease;
@@ -306,7 +294,7 @@
 
 .side-custom-menu ul li a:hover,
 .side-custom-menu ul li a:focus {
-	background-color: #08c;
+	background-color: #ffbb33;
 	color: #fff;
 	text-decoration: none
 }
