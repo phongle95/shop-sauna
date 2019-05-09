@@ -40,7 +40,7 @@
                </div>
                <div class="row form-group">
                   <div class="col-12 col-md-6">
-                     <label class="badge badge-info">Chọn Hình</label><br>
+                     <label class="badge badge-info">Chọn Hình (1280px - 500px)</label><br>
                      <input type="file" style="width:200px" name="img">
                   </div>
                   <div class="col-12 col-md-6">

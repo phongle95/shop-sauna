@@ -27,6 +27,7 @@
                             <script>
                                 var decodedCookie = decodeURIComponent(document.cookie);
                                 var ca = decodedCookie.split(';');
+                                var sum = 0;
                                 for(var i = 0; i < ca.length; i++) {
                                     if(ca[i].indexOf('soLuong')>0){
                                         var item = JSON.parse(ca[i].substring(ca[i].indexOf('=')+1));
@@ -41,9 +42,9 @@
                                         document.write('<a>'+item.tenSP+'</a>');
                                         document.write('</h2>');
                                         document.write('</td>');
-                                        document.write('<td style="color:red">'+formatNumber(item.gia)+'vnđ</td>');
+                                        document.write('<td style="color:red">'+formatNumber(item.gia)+'.vnđ</td>');
                                         document.write('<td><input class="form-control" id="cart'+item.id+'" onChange="thayDoi('+item.id+',this)" value="'+item.soLuong+'" type="number"></td>');
-                                        document.write('<td style="color:red">'+formatNumber(item.gia * item.soLuong)+'vnđ</td>');
+                                        document.write('<td style="color:red">'+formatNumber(item.gia * item.soLuong)+'.vnđ</td>');
                                         document.write('</tr>');
                                         document.write('<tr class="product-action-row">');
                                         document.write('<td colspan="4" class="clearfix">');
@@ -52,8 +53,11 @@
                                         document.write(' </div>');
                                         document.write('</td>');
                                         document.write('</tr>');
-                                        console.log('item',item);
+
+                                        sum += item.gia * item.soLuong;
                                     }
+
+
                                 }
 
                                 function thayDoi(id,ele){
@@ -68,6 +72,16 @@
                                         document.cookie = cname + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                                 }
 
+                                function deleteAllCookies() {
+                                    var cookies = document.cookie.split(";");
+
+                                    for (var i = 0; i < cookies.length; i++) {
+                                        var cookie = cookies[i];
+                                        var eqPos = cookie.indexOf("=");
+                                        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                                        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+                                    }
+                                }
 
                             </script>
 
@@ -90,8 +104,15 @@
                         </tbody>
 
                         <tfoot>
+                                <tr>
+                                    <td colspan="4" class="clearfix">
 
-                        </tfoot>
+                                        <div class="float-right">
+                                            <a href="" onClick="deleteAllCookies()" class="btn btn-outline-secondary btn-update-cart">Xóa Tất Cả</a>
+                                        </div><!-- End .float-right -->
+                                    </td>
+                                </tr>
+                            </tfoot>
                     </table>
                 </div><!-- End .cart-table-container -->
 
@@ -102,82 +123,45 @@
 
             <div class="col-lg-4">
                 <div class="cart-summary">
-                    <h3>Summary</h3>
+                    <h3 style="text-align:center;font-weight:600;">Danh Mục</h3>
 
-                    <h4>
-                        <a data-toggle="collapse" href="#total-estimate-section" class="collapsed" role="button" aria-expanded="false" aria-controls="total-estimate-section">Estimate Shipping and Tax</a>
-                    </h4>
-
-                    <div class="collapse" id="total-estimate-section">
-                        <form action="#">
-                            <div class="form-group form-group-sm">
-                                <label>Country</label>
-                                <div class="select-custom">
-                                    <select class="form-control form-control-sm">
-                                        <option value="USA">United States</option>
-                                        <option value="Turkey">Turkey</option>
-                                        <option value="China">China</option>
-                                        <option value="Germany">Germany</option>
-                                    </select>
-                                </div><!-- End .select-custom -->
-                            </div><!-- End .form-group -->
-
-                            <div class="form-group form-group-sm">
-                                <label>State/Province</label>
-                                <div class="select-custom">
-                                    <select class="form-control form-control-sm">
-                                        <option value="CA">California</option>
-                                        <option value="TX">Texas</option>
-                                    </select>
-                                </div><!-- End .select-custom -->
-                            </div><!-- End .form-group -->
-
-                            <div class="form-group form-group-sm">
-                                <label>Zip/Postal Code</label>
-                                <input type="text" class="form-control form-control-sm">
-                            </div><!-- End .form-group -->
-
-                            <div class="form-group form-group-custom-control">
-                                <label>Flat Way</label>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="flat-rate">
-                                    <label class="custom-control-label" for="flat-rate">Fixed $5.00</label>
-                                </div><!-- End .custom-checkbox -->
-                            </div><!-- End .form-group -->
-
-                            <div class="form-group form-group-custom-control">
-                                <label>Best Rate</label>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="best-rate">
-                                    <label class="custom-control-label" for="best-rate">Table Rate $15.00</label>
-                                </div><!-- End .custom-checkbox -->
-                            </div><!-- End .form-group -->
-                        </form>
-                    </div><!-- End #total-estimate-section -->
 
                     <table class="table table-totals">
                         <tbody>
-                            <tr>
-                                <td>Subtotal</td>
-                                <td>$17.90</td>
-                            </tr>
+                                <script>
+                                        var decodedCookie = decodeURIComponent(document.cookie);
+                                        var ca = decodedCookie.split(';');
 
-                            <tr>
-                                <td>Tax</td>
-                                <td>$0.00</td>
-                            </tr>
+                                        for(var i = 0; i < ca.length; i++) {
+                                            if(ca[i].indexOf('soLuong')>0){
+                                                var item = JSON.parse(ca[i].substring(ca[i].indexOf('=')+1));
+                                                document.write('<tr>');
+                                                document.write('<td>'+item.tenSP+'</td>');
+                                                document.write('<td style="color:red">'+formatNumber(item.gia * item.soLuong)+'.vnđ</td>');
+                                                document.write('</tr>');
+
+                                            }
+                                        }
+
+                                        function formatNumber(num) {
+                                            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+                                        }
+
+
+
+                                    </script>
+
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td>Order Total</td>
-                                <td>$17.90</td>
+                                <td>Tổng Cộng</td>
+                                <td><script>document.write(formatNumber(sum)+".vnđ"); </script></td>
                             </tr>
                         </tfoot>
                     </table>
 
                     <div class="checkout-methods">
-                        <a href="checkout-shipping.html" class="btn btn-block btn-sm btn-primary">Go to Checkout</a>
-                        <a href="#" class="btn btn-link btn-block">Check Out with Multiple Addresses</a>
+                        <a href="{{ route('trangchu.pages.checkout') }}" class="btn btn-block btn-sm btn-primary">Thanh Toán</a>
                     </div><!-- End .checkout-methods -->
                 </div><!-- End .cart-summary -->
             </div><!-- End .col-lg-4 -->
@@ -188,15 +172,20 @@
 </main><!-- End .main -->
 
 @endsection @section('meta')
-<title>Du Lịch Lý Sơn - Thuê Xe Đà Nẵng - Khách Sạn Lý Sơn</title>
-<meta name="keywords" content="" />
-<meta name="description" content='' />
+<title>Sauna Đà Nẵng - Phòng Xông Hơi</title>
+<meta name="keywords" content="máy xông hơi,sauna , máy xông hơi đà nẵng , phòng xông hơi " />
+<meta name="description" content='Sauna Đà nẵng là một trong những công ty hàng đầu trong lĩnh vực thiết kế, lắp đặt , sửa chữa , bảo hành, cung ứng phòng , máy xông hơi tại Việt Nam.
+Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên môn cao, tay nghề vững vàng nên doanh nghiệp ngày càng được sự tín nhiệm của khách hàng.' />
 <!--meta facebook-->
-<meta property="og:title" content="Du Lịch Lý Sơn - Tour Lý Sơn - Thuê Xe Đà Nẵng" />
-<meta property="og:description" content="lysonvn là kênh thông tin online hổ trợ đặt tour , đặt phòng khách sạn cho thuê xe giá rẻ khi đi du lịch lý sơn , đà nẵng , hội an , huế và nhận đặt vé tàu khi đi lý sơn" />
-<meta property="og:image" content="travel/images/dulich.jpg" />
+<meta property="og:title" content="Sauna Đà Nẵng - Phòng Xông Hơi" />
+<meta property="og:description" content="Sauna Đà nẵng là một trong những công ty hàng đầu trong lĩnh vực thiết kế, lắp đặt , sửa chữa , bảo hành, cung ứng phòng , máy xông hơi tại Việt Nam.
+Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên môn cao, tay nghề vững vàng nên doanh nghiệp ngày càng được sự tín nhiệm của khách hàng." />
+<meta property="og:image" content="sauna/assets/images/dt.png" />
 <!--meta google-->
-<meta itemprop="name" content="du lịch lý sơn chuyên tổ chức các tour du lịch lý sơn , đà nẵng , hội an , huế và cho thuê xe du lịch" />
-<meta itemprop="description" content="lysonvn là kênh thông tin online hổ trợ đặt tour , đặt phòng khách sạn cho thuê xe giá rẻ khi đi du lịch lý sơn , đà nẵng , hội an , huế và nhận đặt vé tàu khi đi lý sơn" />
-<meta itemprop="image" content="travel/images/dulich.jpg" />
-<meta name="og:url" content="{{ route('trangchu.pages.trangchu') }}" /> @endsection
+<meta itemprop="name" content="Sauna Đà nẵng là một trong những công ty hàng đầu trong lĩnh vực thiết kế, lắp đặt , sửa chữa , bảo hành, cung ứng phòng , máy xông hơi tại Việt Nam.
+Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên môn cao, tay nghề vững vàng nên doanh nghiệp ngày càng được sự tín nhiệm của khách hàng." />
+<meta itemprop="description" content="Sauna Đà nẵng là một trong những công ty hàng đầu trong lĩnh vực thiết kế, lắp đặt , sửa chữa , bảo hành, cung ứng phòng , máy xông hơi tại Việt Nam.
+Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên môn cao, tay nghề vững vàng nên doanh nghiệp ngày càng được sự tín nhiệm của khách hàng." />
+<meta itemprop="image" content="sauna/assets/images/dt.png" />
+<meta name="og:url" content="{{ route('trangchu.pages.cart') }}" />
+ @endsection

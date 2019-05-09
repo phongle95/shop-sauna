@@ -40,7 +40,7 @@
                </div>
                <div class="row form-group">
                   <div class="col-12 col-md-12">
-                     <label class="badge badge-info">Chọn Hình</label><br><br>
+                     <label class="badge badge-info">Chọn Hình (1280px - 500px)</label><br><br>
                      <input type="file" style="width:200px" name="img" value="{{ old('img') }}">
                   </div>
                </div>

@@ -88,10 +88,23 @@ Route::get('san-pham-{name}_{id}_{ma}.html', [
 // ]);
 
 // danh sách giỏ hàng
-Route::get('danh-sach', [
+Route::get('gio-hang', [
     'uses' => 'TrangChuController@cart',
     'as' => 'trangchu.pages.cart'
 ]);
+
+// đặt hàng
+Route::get('dat-hang', [
+    'uses' => 'TrangChuController@checkout',
+    'as' => 'trangchu.pages.checkout'
+]);
+
+// thành công
+Route::get('thanh-cong', [
+    'uses' => 'TrangChuController@thanhcong',
+    'as' => 'trangchu.pages.thanhcong'
+]);
+
 
 // thêm sản phẩm giỏ hàng
 Route::get('them-san-pham,{id}', [

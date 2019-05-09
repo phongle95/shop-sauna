@@ -9,12 +9,14 @@ use App\loaisanpham;
 use App\sanpham;
 use Storage;
 use Mail;
+use Cookie;
 use Illuminate\Support\Facades\Session;
 
 class TrangChuController extends Controller
 {
     //trang chủ
-    public function trangchu(){
+    public function trangchu(Request $request){
+
         $sanpham = sanpham::where('maLoaiSanPham',1)->orderBy('id','DESC')->limit(5)->get();
         $sanpham1 = sanpham::where('maLoaiSanPham',2)->orderBy('id','DESC')->limit(4)->get();
         $sanpham2 = sanpham::where('maLoaiSanPham',3)->orderBy('id','DESC')->limit(4)->get();
@@ -131,6 +133,17 @@ class TrangChuController extends Controller
 
         return view('trangchu.pages.cart');
     }
+
+    public function checkout(){
+
+        return view('trangchu.pages.checkout');
+    }
+
+    public function thanhcong(){
+
+        return view('trangchu.pages.thanhcong');
+    }
+
 
 
     public function addCart(Request $request, $id, $soluong){

@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Máy Xông Hơi Đà Nẵng</title>
+    @yield('meta')
+    {{--  <title>Máy Xông Hơi Đà Nẵng</title>
 
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
-    <meta name="author" content="SW-THEMES">
+    <meta name="author" content="SW-THEMES">  --}}
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="sauna/assets/images/logovinass.png">

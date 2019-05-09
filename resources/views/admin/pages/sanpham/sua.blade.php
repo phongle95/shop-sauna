@@ -53,15 +53,15 @@
                             <input type="file" style="width:200px" name="img" value="{{ old('img') }}">
                          </div>
                   <div class="col-3 col-md-3">
-                        <label class="badge badge-info">Chọn Hình Phụ 1</label><br><br>
+                        <label class="badge badge-info">Chọn Hình Phụ 1 (600px - 600px)</label><br><br>
                         <input type="file" style="width:200px" name="img1" value="{{ old('img1') }}">
                   </div>
                   <div class="col-3 col-md-3">
-                        <label class="badge badge-info">Chọn Hình Phụ 2</label><br><br>
+                        <label class="badge badge-info">Chọn Hình Phụ 2 (600px - 600px)</label><br><br>
                         <input type="file" style="width:200px" name="img2" value="{{ old('img2') }}">
                   </div>
                   <div class="col-3 col-md-3">
-                        <label class="badge badge-info">Chọn Hình Phụ 3</label><br><br>
+                        <label class="badge badge-info">Chọn Hình Phụ 3 (600px - 600px)</label><br><br>
                         <input type="file" style="width:200px" name="img3" value="{{ old('img3') }}">
                   </div>
                </div>
