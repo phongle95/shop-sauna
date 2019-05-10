@@ -69,10 +69,10 @@ Route::get('san-pham-{name}_{id}_{ma}.html', [
 ]);
 
 
-// Route::get('sitemap.xml', [
-//     'uses' => 'SiteMapController@sitemap',
-//     'as' => 'trangchu.menu.sitemap'
-// ]);
+Route::get('sitemap.xml', [
+    'uses' => 'SiteMapController@sitemap',
+    'as' => 'trangchu.menu.sitemap'
+]);
 
 
 
@@ -82,10 +82,10 @@ Route::get('san-pham-{name}_{id}_{ma}.html', [
 // ]);
 
 
-// Route::post('email', [
-//     'uses' => 'TrangChuController@goiEmail',
-//     'as' => 'front.email'
-// ]);
+Route::post('email', [
+    'uses' => 'TrangChuController@goiEmail',
+    'as' => 'front.email'
+]);
 
 // danh sách giỏ hàng
 Route::get('gio-hang', [

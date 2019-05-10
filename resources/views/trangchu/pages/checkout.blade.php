@@ -27,28 +27,29 @@
 
 
 
-                            <form action="#">
+                            <form action="{{ route('front.email') }}" method="POST" >
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="form-group required-field">
                                     <label>Họ Và Tên </label>
-                                    <input type="text" class="form-control" required>
+                                    <input name="name" type="text" class="form-control" required>
                                 </div><!-- End .form-group -->
 
                                 <div class="form-group required-field">
                                     <label>Số Điện Thoại </label>
-                                    <input type="number" class="form-control" required>
+                                    <input name="sdt" type="number" class="form-control" required>
                                 </div><!-- End .form-group -->
 
                                 <div class="form-group">
                                     <label>Gmail </label>
-                                    <input type="email" class="form-control">
+                                    <input name="email" type="email" class="form-control">
                                 </div><!-- End .form-group -->
 
                                 <div class="form-group required-field">
                                     <label>Địa Chỉ</label>
-                                    <input type="text" class="form-control" required>
+                                    <input name="diachi" type="text" class="form-control" required>
                                 </div><!-- End .form-group -->
                                 <div class="form-group">
-                                        <a href="{{ route('trangchu.pages.thanhcong') }}"  class="btn btn-primary">Đặt Hàng</a>
+                                        <button type="submit"   class="btn btn-primary">Đặt Hàng</button>
                                 </div><!-- End .form-group -->
 
 

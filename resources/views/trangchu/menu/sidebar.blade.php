@@ -22,14 +22,14 @@
             <li>
                 <div class="entry-media">
                     <a href="{{ route('trangchu.chitiet.news',['slug'=>str_slug($item->tieuDe),'id'=>$item->id,'ma'=>$item->maLoaiTin]) }}">
-                        <img style="height:100px;" src="upload/{{ $item->img }}" alt="hình xông hơi">
+                        <img style="height:80px;" src="upload/{{ $item->img }}" alt="hình xông hơi">
                     </a>
                 </div>
                 <!-- End .entry-media -->
                 <div class="entry-info">
                     <a href="{{ route('trangchu.chitiet.news',['slug'=>str_slug($item->tieuDe),'id'=>$item->id,'ma'=>$item->maLoaiTin]) }}">{{ $item->tieuDe }}</a>
                     <div class="entry-meta">
-                            {{ date("d-m-Y", strtotime($item->date)) }}
+                            <span><i class="icon-calendar"></i>{{ date("d-m-Y", strtotime($item->date)) }}</span>
                     </div>
                     <!-- End .entry-meta -->
                 </div>

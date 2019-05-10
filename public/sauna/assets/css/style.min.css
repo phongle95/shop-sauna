@@ -4898,6 +4898,7 @@ a:focus {
 }
 
 @media screen and (min-width: 992px) {
+
 	.modal-dialog {
 		max-width: 800px
 	}
@@ -4908,6 +4909,7 @@ a:focus {
 		padding-left: 3rem
 	}
 }
+
 
 @media screen and (max-width: 479px) {
 	.modal-open,

@@ -1,7 +1,7 @@
 @extends('trangchu.menu.master')
 @section('noidung')
 <main class="main">
-        <div class="banner banner-cat" style="background-image: url('sauna/assets/images/gt.jpg');">
+        <div class="banner banner-cat" style="background-image: url('sauna/assets/images/sanpham1.jpg');">
             <div class="banner-content container">
 
             </div>

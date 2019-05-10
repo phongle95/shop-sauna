@@ -85,7 +85,7 @@
                                     </div>
                                     <!-- End .product-single-qty -->
 
-                                    <a href="#" onClick="thayDoi({{ $chitiet }})" class="paction add-cart" title="Add to Cart">
+                                    <a href="" onClick="thayDoi({{ $chitiet }})" class="paction add-cart" title="Add to Cart">
                                         <span>Thêm Vào Giỏ</span>
                                     </a>
 
@@ -202,12 +202,17 @@
 
                                 </script>
                                 <!-- End .product-action -->
+                                    <div class="row">
 
-                                <div class="product-single-share">
-                                    <label>Share:</label>
-                                    <!-- www.addthis.com share plugin-->
-                                    <div class="addthis_inline_share_toolbox"></div>
-                                </div>
+                                        <div class="col-sm-6">
+                                                <br>
+                                            <a target="_blank" href="https://www.facebook.com/mayxonghoitaidanang/"><img width="100%" src="sauna/assets/images/chat-facebook.png" alt="chat-facebook"></a>
+                                        </div>
+                                        <div class="col-sm-6">
+                                                <br>
+                                            <a target="_blank" href="https://zalo.me/0328811678"><img width="100%" src="sauna/assets/images/chat-zalo.png" alt="chat-zalo"></a>
+                                        </div>
+                                    </div>
                                 <!-- End .product single-share -->
                             </div>
                             <!-- End .product-single-details -->

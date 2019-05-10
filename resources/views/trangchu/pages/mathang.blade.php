@@ -1,7 +1,7 @@
 @extends('trangchu.menu.master')
 @section('noidung')
 <main class="main">
-        <div class="banner banner-cat" style="background-image: url('sauna/assets/images/gt.jpg');">
+        <div class="banner banner-cat" style="background-image: url('sauna/assets/images/sanpham1.jpg');">
             <div class="banner-content container">
 
             </div>
@@ -235,7 +235,8 @@
         <!-- margin -->
     </main>
     <!-- End .main -->
-@endsection @section('meta')
+@endsection
+@section('meta')
 <title>Sauna Đà Nẵng - Phòng Xông Hơi</title>
 <meta name="keywords" content="máy xông hơi,sauna , máy xông hơi đà nẵng , phòng xông hơi " />
 <meta name="description" content='Sauna Đà nẵng là một trong những công ty hàng đầu trong lĩnh vực thiết kế, lắp đặt , sửa chữa , bảo hành, cung ứng phòng , máy xông hơi tại Việt Nam.
@@ -252,7 +253,6 @@ Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên
 Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên môn cao, tay nghề vững vàng nên doanh nghiệp ngày càng được sự tín nhiệm của khách hàng." />
 <meta itemprop="image" content="sauna/assets/images/dt.png" />
 <meta name="og:url" content="{{ route('trangchu.pages.trangchu') }}" />
- @endsectionn
 
 
 <script>

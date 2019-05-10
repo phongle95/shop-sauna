@@ -13,7 +13,7 @@
       <priority>1</priority>
    </url>
    <url>
-      <loc>{{ route('trangchu.pages.dichvu') }}</loc>
+      <loc>{{ route('trangchu.pages.sanpham') }}</loc>
       <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
       <changefreq>daily</changefreq>
       <priority>1</priority>
@@ -30,36 +30,46 @@
       <changefreq>daily</changefreq>
       <priority>1</priority>
    </url>
-   @foreach ($tin as $item)
    <url>
-      <loc>{{ route('trangchu.chitiet.news',['slug' => str_slug($item->tieuDe),'id'=>$item->id]) }}</loc>
+      <loc>{{ route('trangchu.pages.congtrinh') }}</loc>
+      <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+   </url>
+   <url>
+      <loc>{{ route('trangchu.pages.tuyendung') }}</loc>
+      <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+   </url>
+   <url>
+      <loc>{{ route('trangchu.timkiem.news') }}</loc>
+      <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+   </url>
+   <url>
+      <loc>{{ route('trangchu.timkiem.product') }}</loc>
+      <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+   </url>
+
+   @foreach ($news as $item)
+   <url>
+      <loc>{{ route('trangchu.chitiet.news',['slug'=>str_slug($item->tieuDe),'id'=>$item->id,'ma'=>$item->maLoaiTin]) }}</loc>
       <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
    </url>
    @endforeach
-   @foreach ($travel as $item)
+   @foreach ($sanpham as $item)
    <url>
-      <loc>{{ route('trangchu.chitiet.travel',['slug' => str_slug($item->tenTour),'id'=>$item->id]) }}</loc>
+      <loc>{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}</loc>
       <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
    </url>
    @endforeach
-   @foreach ($hotel as $item)
-   <url>
-      <loc>{{ route('trangchu.chitiet.hotel',['slug' => str_slug($item->tenHotel),'id'=>$item->id]) }}</loc>
-      <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
-      <changefreq>daily</changefreq>
-      <priority>0.8</priority>
-   </url>
-   @endforeach
-   @foreach ($car as $item)
-   <url>
-      <loc>{{ route('trangchu.chitiet.car',['slug' => str_slug($item->todo),'id'=>$item->id]) }}</loc>
-      <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
-      <changefreq>daily</changefreq>
-      <priority>0.8</priority>
-   </url>
-   @endforeach
+
 </urlset>

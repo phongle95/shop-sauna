@@ -98,6 +98,12 @@ class TrangChuController extends Controller
     public function timkiem(Request $request){
         $tukhoa = $request->tukhoa;
         $ketqua = news::where('tieuDe','like','%'.$tukhoa.'%')->orwhere('tomTat','like','%'.$tukhoa.'%')->paginate(4);
+        if(count($ketqua)>0){
+            toastr()->success("Đã tìm thấy kết quả $tukhoa");
+        }
+        else {
+            toastr()->error("Không tìm thấy kết quả cho $tukhoa");
+        }
         return view('trangchu.timkiem.news',['ketqua'=>$ketqua]);
     }
 
@@ -105,27 +111,24 @@ class TrangChuController extends Controller
       public function searchProduct(Request $request){
         $tukhoa = $request->tukhoa;
         $ketqua = sanpham::where('tenSP','like','%'.$tukhoa.'%')->paginate(8);
+        if(count($ketqua)>0){
+            toastr()->success("Đã tìm thấy kết quả $tukhoa");
+        }
+        else {
+            toastr()->error("Không tìm thấy kết quả cho $tukhoa");
+        }
         return view('trangchu.timkiem.product',['ketqua'=>$ketqua]);
     }
 
+     // gởi email đặt hàng
+     public function goiEmail(Request $request){
+        $input = $request->all();
+        Mail::send('mailfb',array('name'=>$input["name"],'sdt'=>$input["sdt"],'email'=>$input["email"],'diachi'=>$input["diachi"]),function($message){
+            $message->to('lehongphongcntt@gmail.com','abc')->subject('Khách Đặt Hàng!');
+        });
+        return redirect()->route('trangchu.pages.thanhcong');
 
-    // //liên hệ send email
-    // public function sendEmail(Request $request){
-    //     $input = $request->all();
-    //     Mail::send('mailfb',array('name'=>$input["name"],'email'=>$input["email"],'sdt'=>$input["sdt"],'comment'=>$input["comment"]),function($message){
-    //         $message->to('lehongphongcntt@gmail.com','Visitor')->subject('Khách Hàng Liên Hệ!');
-    //     });
-    //     return redirect()->route('trangchu.pages.lienhe')->with('thongbao','Liên hệ thành công');
-    // }
-
-    //  //trang chủ gởi email
-    //  public function goiEmail(Request $request){
-    //     $input = $request->all();
-    //     Mail::send('mailfb',array('name'=>$input["name"],'email'=>$input["email"],'sdt'=>$input["sdt"],'comment'=>$input["comment"]),function($message){
-    //         $message->to('lehongphongcntt@gmail.com','Visitor')->subject('Khách Hàng Liên Hệ!');
-    //     });
-    //     return redirect()->route('trangchu.pages.trangchu')->with('thongbao','Đặt tour thành công');
-    // }
+    }
 
 
 

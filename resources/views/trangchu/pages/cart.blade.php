@@ -43,7 +43,7 @@
                                         document.write('</h2>');
                                         document.write('</td>');
                                         document.write('<td style="color:red">'+formatNumber(item.gia)+'.vnđ</td>');
-                                        document.write('<td><input class="form-control" id="cart'+item.id+'" onChange="thayDoi('+item.id+',this)" value="'+item.soLuong+'" type="number"></td>');
+                                        document.write('<td><input class="vertical-quantity form-control" id="cart'+item.id+'" onChange="thayDoi('+item.id+',this)" value="'+item.soLuong+'" type="number"></td>');
                                         document.write('<td style="color:red">'+formatNumber(item.gia * item.soLuong)+'.vnđ</td>');
                                         document.write('</tr>');
                                         document.write('<tr class="product-action-row">');

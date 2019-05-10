@@ -7,11 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     @yield('meta')
-    {{--  <title>Máy Xông Hơi Đà Nẵng</title>
-
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Porto - Bootstrap eCommerce Template">
-    <meta name="author" content="SW-THEMES">  --}}
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="sauna/assets/images/logovinass.png">
@@ -21,6 +16,8 @@
 
     <!-- Main CSS File -->
     <link rel="stylesheet" href="sauna/assets/css/style.min.css">
+    <link rel="stylesheet" href="css/phone.css">
+    @toastr_css
 </head>
 
 <body>
@@ -176,6 +173,16 @@
         </header>
         <!-- End .header -->
         @yield('noidung')
+        <div class='quick-call-button'></div>
+        <div class='call-now-button'>
+        <div><p class='call-text'></p>
+        <a href='tel:0328811678' title='Gọi ngay' >
+        <div class='quick-alo-ph-circle active'></div>
+        <div class='quick-alo-ph-circle-fill active'></div>
+        <div class='quick-alo-ph-img-circle shake'></div>
+        </a>
+        </div>
+        </div>
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=453100318560380&autoLogAppEvents=1"></script>
 
@@ -392,7 +399,7 @@
         <div class="newsletter-popup-content">
             <img src="sauna/assets/images/logovinass.png" alt="Logo" class="logo-newsletter">
             <h2>ĐĂNG KÝ NGAY</h2>
-            <p>Đăng ký ngay để nhận được thông báo khuyến mãi của Vinass Sauna !</p>
+            <p style="color:#FF8800;font-weight:600">Đăng ký ngay để nhận được thông báo khuyến mãi của Vinass Sauna !</p>
             <form action="#">
                 <div class="input-group">
                     <input type="email" class="form-control" id="newsletter-email" name="newsletter-email" placeholder="Nhập địa chỉ email" required>
@@ -424,6 +431,10 @@
     <!-- Google Map-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc3LRykbLB-y8MuomRUIY0qH5S6xgBLX4"></script>
     <script src="sauna/assets/js/map.js"></script>
+
+    @jquery
+    @toastr_js
+    @toastr_render
 </body>
 
 </html>
