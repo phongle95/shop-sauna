@@ -29,7 +29,7 @@
                                 <span class="month">Jun</span>
                             </div><!-- End .entry-date -->
 
-                            <h2 class="entry-title">
+                            <h2 style="color:#5cb900" class="entry-title">
                                     {{ $chitiet->tieuDe }}
                             </h2>
 
@@ -61,7 +61,7 @@
                             <article class="entry">
                                 <div class="entry-media">
                                     <a href="{{ route('trangchu.chitiet.news',['slug'=>str_slug($item->tieuDe),'id'=>$item->id,'ma'=>$item->maLoaiTin]) }}">
-                                        <img src="upload/{{ $item->img }}" alt="Máy Xông Hơi">
+                                        <img style="height:160px;" src="upload/{{ $item->img }}" alt="Máy Xông Hơi">
                                     </a>
                                 </div><!-- End .entry-media -->
 
@@ -76,7 +76,7 @@
                                     </h2>
 
                                     <div class="entry-content">
-                                        <p>{{ $item->tomTat }}</p>
+                                        {{--  <p>{{ $item->tomTat }}</p>  --}}
 
                                         <a href="{{ route('trangchu.chitiet.news',['slug'=>str_slug($item->tieuDe),'id'=>$item->id,'ma'=>$item->maLoaiTin]) }}" class="read-more">Đọc Thêm <i class="icon-angle-double-right"></i></a>
                                     </div><!-- End .entry-content -->

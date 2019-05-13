@@ -79,6 +79,7 @@
                         @foreach ($loaisanpham as $item)
                         <option value="{{ $item->id }}">{{ $item->tenLoaiSanPham }}</option>
                         @endforeach
+                        <option value="50">Phòng Xông Hơi Đá Muối Hymalaya</option>
                      </select>
                   </div>
                   <div class="col-6 col-md-6">
@@ -88,6 +89,7 @@
                            @foreach ($mathang as $item)
                            <option value="{{ $item->id }}">{{ $item->tenMatHang }}</option>
                            @endforeach
+                           <option value="0">Không</option>
                         </select>
                      </div>
                </div>

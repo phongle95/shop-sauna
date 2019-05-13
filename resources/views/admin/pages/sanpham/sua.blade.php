@@ -94,15 +94,16 @@
                         @foreach ($loaisanpham as $item)
                         <option  @if($sanpham->maLoaiSanPham == $item->id) {{ "selected" }} @endif value="{{ $item->id }}">{{ $item->tenLoaiSanPham }}</option>
                         @endforeach
+                        <option value="50">Phòng Xông Hơi Đá Muối Hymalaya</option>
                      </select>
                   </div>
                   <div class="col-6 col-md-6">
                         <label class="badge badge-info">Mặt Hàng</label><br>
                         <select name="maSanPham" class="form-control">
-                            <option value="0">Không</option>
                            @foreach ($mathang as $item)
                            <option  @if($sanpham->maSanPham == $item->id) {{ "selected" }} @endif value="{{ $item->id }}">{{ $item->tenMatHang }}</option>
                            @endforeach
+                           <option value="0">Không</option>
                         </select>
                      </div>
                </div>

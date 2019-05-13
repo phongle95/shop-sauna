@@ -18,11 +18,11 @@
 
         <div class="row">
             <div class="col-md-8">
-                <h2 class="light-title">Write <strong>Us</strong></h2>
+                <h2 class="light-title"><strong>Viết Cho Chúng Tôi</strong></h2>
 
                 <form action="#">
                     <div class="form-group required-field">
-                        <label for="contact-name">Name</label>
+                        <label for="contact-name">Họ Và Tên</label>
                         <input type="text" class="form-control" id="contact-name" name="contact-name" required>
                     </div>
                     <!-- End .form-group -->
@@ -34,19 +34,19 @@
                     <!-- End .form-group -->
 
                     <div class="form-group">
-                        <label for="contact-phone">Phone Number</label>
+                        <label for="contact-phone">Số Điện Thoại</label>
                         <input type="tel" class="form-control" id="contact-phone" name="contact-phone">
                     </div>
                     <!-- End .form-group -->
 
                     <div class="form-group required-field">
-                        <label for="contact-message">What’s on your mind?</label>
+                        <label for="contact-message">Bạn Nghĩ Gì</label>
                         <textarea cols="30" rows="1" id="contact-message" class="form-control" name="contact-message" required></textarea>
                     </div>
                     <!-- End .form-group -->
 
                     <div class="form-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Gởi Ngay</button>
                     </div>
                     <!-- End .form-footer -->
                 </form>
@@ -54,12 +54,12 @@
             <!-- End .col-md-8 -->
 
             <div class="col-md-4">
-                <h2 class="light-title">Contact <strong>Details</strong></h2>
+                <h2 class="light-title"><strong>Liên Hệ</strong></h2>
 
                 <div class="contact-info">
                     <div>
                         <i class="icon-phone"></i>
-                        <p><a href="tel:">0201 203 2032</a></p>
+                        <p><a href="tel:">032 8811 678</a></p>
                         <p><a href="tel:">0201 203 2032</a></p>
                     </div>
                     <div>

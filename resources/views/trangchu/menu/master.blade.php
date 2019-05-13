@@ -145,7 +145,7 @@
 
                                     </li>
                                     @endforeach
-                                    <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug('Phòng Xông Hơi Đá Muối Hymalaya'),'id'=>20]) }}">Phòng Xông Hơi Đá Muối Hymalaya</a></li>
+                                    <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug('Phòng Xông Hơi Đá Muối Hymalaya'),'id'=>50]) }}">Phòng Xông Hơi Đá Muối Hymalaya</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -238,13 +238,13 @@
                                 <h4 class="widget-title">Liên Hệ Với Chúng Tôi</h4>
                                 <ul class="contact-info">
                                     <li>
-                                        <span class="contact-info-label">Địa Chỉ:</span>121 Cù Chính Lan,TP.Đà Nẵng
+                                        <span class="contact-info-label">Địa Chỉ :</span>121 Cù Chính Lan,TP.Đà Nẵng
                                     </li>
                                     <li>
-                                        <span class="contact-info-label">Phone:</span><a href="tel:0328811678">032 8811 678</a>
+                                        <span class="contact-info-label">Phone :</span><a href="tel:0328811678">032 8811 678</a>
                                     </li>
                                     <li>
-                                        <span class="contact-info-label">Email:</span> <a href="mailto:mail@example.com">lehongphongcntt@gmail.com</a>
+                                        <span class="contact-info-label">Email :</span> <a href="mailto:mail@example.com">lehongphongcntt@gmail.com</a>
                                     </li>
                                 </ul>
                             </div>
@@ -256,23 +256,20 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="widget">
-                                        <h4 class="widget-title">My Account</h4>
+                                        <h4 class="widget-title">Menu</h4>
 
                                         <div class="row">
                                             <div class="col-sm-6 col-md-5">
                                                 <ul class="links">
-                                                    <li><a href="{{ route('trangchu.pages.gioithieu') }}">About Us</a></li>
-                                                    <li><a href="contact.html">Contact Us</a></li>
-                                                    <li><a href="my-account.html">My Account</a></li>
+                                                    <li><a href="{{ route('trangchu.pages.trangchu') }}">Trang Chủ</a></li>
+                                                    <li><a href="{{ route('trangchu.pages.gioithieu') }}">Giới Thiệu</a></li>
+                                                    <li><a href="{{ route('trangchu.pages.sanpham') }}">Sản Phẩm</a></li>
+
                                                 </ul>
                                             </div>
                                             <!-- End .col-sm-6 -->
                                             <div class="col-sm-6 col-md-5">
-                                                <ul class="links">
-                                                    <li><a href="#">Orders History</a></li>
-                                                    <li><a href="#">Advanced Search</a></li>
-                                                    <li><a href="#" class="login-link">Login</a></li>
-                                                </ul>
+
                                             </div>
                                             <!-- End .col-sm-6 -->
                                         </div>
@@ -284,24 +281,18 @@
 
                                 <div class="col-md-7">
                                     <div class="widget">
-                                        <h4 class="widget-title">Main Features</h4>
+                                        <h4 class="widget-title">Thông Tin</h4>
 
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <ul class="links">
-                                                    <li><a href="#">Super Fast Magento Theme</a></li>
-                                                    <li><a href="#">1st Fully working Ajax Theme</a></li>
-                                                    <li><a href="#">20 Unique Homepage Layouts</a></li>
+                                                    <li><a href="{{ route('trangchu.pages.tuyendung') }}">Tuyển Dụng </a></li>
+                                                    <li><a href="{{ route('trangchu.pages.tintuc') }}">Tin Tức</a></li>
+                                                    <li><a href="{{ route('trangchu.pages.lienhe') }}">Liên Hệ</a></li>
+
                                                 </ul>
                                             </div>
-                                            <!-- End .col-sm-6 -->
-                                            <div class="col-sm-6">
-                                                <ul class="links">
-                                                    <li><a href="#">Powerful Admin Panel</a></li>
-                                                    <li><a href="#">Mobile & Retina Optimized</a></li>
-                                                </ul>
-                                            </div>
-                                            <!-- End .col-sm-6 -->
+
                                         </div>
                                         <!-- End .row -->
                                     </div>
@@ -316,7 +307,7 @@
 
                                 <ul class="contact-info">
                                     <li>
-                                        <span class="contact-info-label">Working Days/Hours:</span> Mon - Sun / 7:00AM - 6:00PM
+                                        <span class="contact-info-label">Giờ Làm Việc</span> Mon - Sun / 7:00AM - 6:00PM
                                     </li>
                                 </ul>
                                 <img src="sauna/assets/images/payments.png" alt="payment methods" class="footer-payments">

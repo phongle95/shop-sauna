@@ -106,18 +106,6 @@ Route::get('thanh-cong', [
 ]);
 
 
-// thêm sản phẩm giỏ hàng
-Route::get('them-san-pham,{id}', [
-    'uses' => 'TrangChuController@addCart',
-    'as' => 'trangchu.pages.them'
-]);
-
-
-Route::post('ajax/addcart', [
-    'uses' => 'AjaxController@addcart',
-    'as' => 'ajax.index.addcart'
-]);
-
 
 
 //                                 // Admin

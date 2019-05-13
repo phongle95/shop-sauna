@@ -226,7 +226,7 @@
                 <div class="product-single-tabs">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab" aria-controls="product-desc-content" aria-selected="true">Mô Tả Sản Phẩm</a>
+                            <a style="color:#5cb900" class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab" aria-controls="product-desc-content" aria-selected="true">Mô Tả Sản Phẩm</a>
                         </li>
 
                     </ul>
@@ -287,7 +287,7 @@
                     <!-- End .widget -->
 
                     <div class="widget widget-featured">
-                        <h3 class="widget-title">Sản Phẩm Bán Chạy</h3>
+                        <h3 style="color:#5cb900" class="widget-title">Sản Phẩm Bán Chạy</h3>
 
                         <div class="widget-body">
                                 <div class="owl-carousel widget-featured-products">
@@ -376,7 +376,7 @@
 
     <div class="featured-section">
         <div class="container">
-            <h2 class="carousel-title">Sản Phẩm Liên Quan </h2>
+            <h2 style="color:#5cb900" class="carousel-title">Sản Phẩm Liên Quan </h2>
 
             <div class="featured-products owl-carousel owl-theme owl-dots-top">
                 @foreach ($sanpham as $item)

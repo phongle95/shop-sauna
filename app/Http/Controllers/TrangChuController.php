@@ -21,8 +21,9 @@ class TrangChuController extends Controller
         $sanpham1 = sanpham::where('maLoaiSanPham',2)->orderBy('id','DESC')->limit(4)->get();
         $sanpham2 = sanpham::where('maLoaiSanPham',3)->orderBy('id','DESC')->limit(4)->get();
         $sanpham3 = sanpham::where('maLoaiSanPham',4)->orderBy('id','DESC')->limit(4)->get();
+        $sanpham4 = sanpham::where('maLoaiSanPham',50)->orderBy('id','DESC')->limit(4)->get();
         $tintuc = news::orderBy('id','DESC')->limit(4)->get();
-        return view('trangchu.pages.trangchu',['sanpham'=>$sanpham,'sanpham1'=>$sanpham1,'sanpham2'=>$sanpham2,'sanpham3'=>$sanpham3,'tintuc'=>$tintuc]);
+        return view('trangchu.pages.trangchu',['sanpham'=>$sanpham,'sanpham1'=>$sanpham1,'sanpham2'=>$sanpham2,'sanpham3'=>$sanpham3,'sanpham4'=>$sanpham4,'tintuc'=>$tintuc]);
     }
 
     //Giới thiệu
@@ -32,7 +33,7 @@ class TrangChuController extends Controller
 
     //Sản phẩm
     public function sanpham(){
-        $sanpham = sanpham::orderBy('id','DESC')->paginate(8);
+        $sanpham = sanpham::orderBy('id','DESC')->paginate(14);
         return view('trangchu.pages.sanpham',['sanpham'=>$sanpham]);
     }
 
@@ -149,31 +150,5 @@ class TrangChuController extends Controller
 
 
 
-    public function addCart(Request $request, $id, $soluong){
-        $cart = [];
-        $sessions = $request->session()->get('cart');
-        if($sessions){
-           foreach($sessions as $session){
-               if($session->id == $id){
-                    $session->soluong += $soluong;
-               }
-           }
-        }
-        $sanpham = sanpham::find($id);
-
-        if($sanpham == ""){
-            return redirect()->route('trangchu.pages.trangchu');
-        }
-
-        $cart = array([
-            'id' => $sanpham->id,
-            'tenSP'=> $sanpham->tenSP,
-            'img'=> $sanpham->img,
-            'gia'=> $sanpham->gia,
-        ]);
-
-        $request->session()->put('cart', $cart);
-        return redirect()->back();
-    }
 
 }

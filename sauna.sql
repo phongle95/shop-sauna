@@ -2,10 +2,10 @@
 -- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 08, 2019 at 11:03 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th5 13, 2019 lúc 11:54 AM
+-- Phiên bản máy phục vụ: 10.1.37-MariaDB
+-- Phiên bản PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sauna`
+-- Cơ sở dữ liệu: `sauna`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `items`
+-- Cấu trúc bảng cho bảng `items`
 --
 
 CREATE TABLE `items` (
@@ -35,7 +35,7 @@ CREATE TABLE `items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `items`
+-- Đang đổ dữ liệu cho bảng `items`
 --
 
 INSERT INTO `items` (`id`, `tenMatHang`, `maLoaiSanPham`) VALUES
@@ -47,12 +47,18 @@ INSERT INTO `items` (`id`, `tenMatHang`, `maLoaiSanPham`) VALUES
 (7, 'Ghế Massage', 7),
 (8, 'Giường Massage', 7),
 (9, 'Bộ Điều Khiển Nhiệt', 8),
-(10, 'Bồn Tắm Massage', 6);
+(10, 'Bồn Tắm Massage', 6),
+(11, 'Máy Xông Hơi Relax', 1),
+(12, 'Máy Xông Hơi Coast', 1),
+(13, 'Máy Xông Hơi Amazon', 1),
+(14, 'Máy Xông Hơi Haviva', 1),
+(15, 'Máy Xông Hơi Husan', 1),
+(16, 'Máy Xông Hơi Sawo', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loaisanpham`
+-- Cấu trúc bảng cho bảng `loaisanpham`
 --
 
 CREATE TABLE `loaisanpham` (
@@ -61,7 +67,7 @@ CREATE TABLE `loaisanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `loaisanpham`
+-- Đang đổ dữ liệu cho bảng `loaisanpham`
 --
 
 INSERT INTO `loaisanpham` (`id`, `tenLoaiSanPham`) VALUES
@@ -76,7 +82,7 @@ INSERT INTO `loaisanpham` (`id`, `tenLoaiSanPham`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loaitin`
+-- Cấu trúc bảng cho bảng `loaitin`
 --
 
 CREATE TABLE `loaitin` (
@@ -85,7 +91,7 @@ CREATE TABLE `loaitin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `loaitin`
+-- Đang đổ dữ liệu cho bảng `loaitin`
 --
 
 INSERT INTO `loaitin` (`id`, `tenLoaiTin`) VALUES
@@ -96,7 +102,7 @@ INSERT INTO `loaitin` (`id`, `tenLoaiTin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `news`
+-- Cấu trúc bảng cho bảng `news`
 --
 
 CREATE TABLE `news` (
@@ -111,7 +117,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `news`
+-- Đang đổ dữ liệu cho bảng `news`
 --
 
 INSERT INTO `news` (`id`, `tieuDe`, `tomTat`, `keyword`, `img`, `date`, `noiDung`, `maLoaiTin`) VALUES
@@ -125,7 +131,7 @@ INSERT INTO `news` (`id`, `tieuDe`, `tomTat`, `keyword`, `img`, `date`, `noiDung
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sanpham`
+-- Cấu trúc bảng cho bảng `sanpham`
 --
 
 CREATE TABLE `sanpham` (
@@ -144,7 +150,7 @@ CREATE TABLE `sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sanpham`
+-- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
 INSERT INTO `sanpham` (`id`, `tenSP`, `tomTat`, `keyword`, `gia`, `img`, `img1`, `img2`, `img3`, `productDetail`, `maLoaiSanPham`, `maSanPham`) VALUES
@@ -157,12 +163,13 @@ INSERT INTO `sanpham` (`id`, `tenSP`, `tomTat`, `keyword`, `gia`, `img`, `img1`,
 (13, 'Máy xông hơi ướt KINGSTEAM N45 (4,5KW)', 'Máy xông hơi ướt KINGSTEAM N45 (4,5KW)', 'Máy xông hơi ướt KINGSTEAM N45 (4,5KW)', 8000000, 'ksz9pkdmxFsc28V1U61qT8CRSxYWaJUnZVWNvmol.jpeg', 'F3CNj6R5cHm6v2aQk3JnRjLkXz511elGewNHFTbs.jpeg', '7sKSgYvLoBWt3VrsMAB4TUf5otqFftgHa2TXgZFf.jpeg', 'q4T8QTodwk2xfZYrtzRvumSdLjh5CYEhT078q9ay.jpeg', '<p>xyz</p>', 1, 1),
 (14, 'Máy xông hơi ướt KINGSTEAM 3', 'Máy xông hơi ướt KINGSTEAM 3', 'Máy xông hơi ướt KINGSTEAM 3', 7000000, 'HHd61EhLtdHX8PhUmojP00yHDYcz45sGzCrmlHHk.jpeg', 'xr7H5xs2A8Q7e2BuoDs67QhX1b4NtkdVOhleF2lq.jpeg', 'D8oH2ChOt5amHcuGhBwFmThE3YIW5GfAE29uPfVU.jpeg', 'w2A6O2oYxwV4nTmnIreyh8Bc1k5aHqpalyoCzUlC.jpeg', '<p>ảeadf</p>', 1, 1),
 (15, 'Máy xông hơi ướt KINGSTEAM 4', 'Máy xông hơi ướt KINGSTEAM 4', 'Máy xông hơi ướt KINGSTEAM 4', 9000000, 'OX15moYGzPEBJPs3JzQjlYHAVItPSltjmXBoNcJo.jpeg', 'f4s2BW5yT1yBMNh06v49YRUmSH2fM73c9JIP9WR2.jpeg', 'EEY3bDnnV8MaGanlZwhv7KDhFJrRAYzh6EBlf0A6.jpeg', 'Sk5O975uHUweJZFJiD4QN7tyqqZT5LIkWMwqtCb0.jpeg', '<p>acdg</p>', 1, 1),
-(16, 'Máy xông hơi ướt KINGSTEAM 5', 'Máy xông hơi ướt KINGSTEAM 4', 'Máy xông hơi ướt KINGSTEAM 4', 10000000, '9zPF0w9bKP3p6RSZW6amvQ56FBrZDXBaH8tz1iHD.jpeg', 'OaH6m6nmAvrdqba8AGdC5s1OlFhtMCv2KLsaxLYw.jpeg', 'zt31VEHhlSde31Vy42GUzVND35OjzOJPwF5eFaor.jpeg', '2WfDyZqjJsdNxC22YWFEWU82slHPJEewdz8AMM9O.jpeg', '<p>ac</p>', 1, 1);
+(16, 'Máy xông hơi ướt KINGSTEAM 5', 'Máy xông hơi ướt KINGSTEAM 4', 'Máy xông hơi ướt KINGSTEAM 4', 10000000, '9zPF0w9bKP3p6RSZW6amvQ56FBrZDXBaH8tz1iHD.jpeg', 'OaH6m6nmAvrdqba8AGdC5s1OlFhtMCv2KLsaxLYw.jpeg', 'zt31VEHhlSde31Vy42GUzVND35OjzOJPwF5eFaor.jpeg', '2WfDyZqjJsdNxC22YWFEWU82slHPJEewdz8AMM9O.jpeg', '<p>ac</p>', 1, 1),
+(17, 'Phòng Xông Hơi Đá Muối KS - SDM 121', 'Phòng xông hơi đá muối là sự kết hợp của phòng xông hơi truyền thống với đá muối Hymalaya được lắp bổ sung trong phòng .Trong đá muối có rất nhiều khoáng chất có lợi cho sức khỏe con người.  Trong đó có các ion âm giúp làm sạch không khí, săn chắc da và gìn giữ da đẹp. Các ion âm được giải phóng khi có tác dụng nhiệt hoặc tia hồng ngoại trong phòng xông hơi đá muối.', 'Phòng Xông Hơi Hồng Ngoại HS - 101A, sauna đà nẵng', 39000000, 'YsTLAs6LbaqsdKLq8zwQqZWbgvKTJGGIFKDFr8ww.jpeg', 'AomV14vMUl3NqHuUhx9ErJhfcxFjtPdnLVgsTBYj.jpeg', 't6ssBa8liQ4PQt2EMOMigKzGPmNOauzU9ZZaWlWe.jpeg', 'lUTUgmCOS1iqOsouTUTplyB4q6PjtKmwH4W2bMnM.jpeg', '<p>abc</p>', 50, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -173,88 +180,88 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `fullname`) VALUES
 (1, 'admin', '$2y$10$SUh1lzfSrthenGfJICefnOImGAVCiDxqWcVegVdUPHC7oeqoeBxJG', 'Lê Hồng Phong');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `items`
+-- Chỉ mục cho bảng `items`
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `loaisanpham`
+-- Chỉ mục cho bảng `loaisanpham`
 --
 ALTER TABLE `loaisanpham`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `loaitin`
+-- Chỉ mục cho bảng `loaitin`
 --
 ALTER TABLE `loaitin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `news`
+-- Chỉ mục cho bảng `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sanpham`
+-- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `items`
+-- AUTO_INCREMENT cho bảng `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `loaisanpham`
+-- AUTO_INCREMENT cho bảng `loaisanpham`
 --
 ALTER TABLE `loaisanpham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `loaitin`
+-- AUTO_INCREMENT cho bảng `loaitin`
 --
 ALTER TABLE `loaitin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `news`
+-- AUTO_INCREMENT cho bảng `news`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `sanpham`
+-- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

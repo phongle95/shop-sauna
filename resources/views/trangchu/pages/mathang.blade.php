@@ -13,7 +13,7 @@
             <div class="container">
                 <ol class="breadcrumb mt-0">
                     <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item">Sản Phẩm abc</li>
+                    <li class="breadcrumb-item">Sản Phẩm</li>
                 </ol>
             </div>
             <!-- End .container -->
@@ -106,7 +106,7 @@
                                                 <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug($item->tenLoaiSanPham),'id'=>$item->id]) }}">{{ $item->tenLoaiSanPham }}</a></li>
 
                                                 @endforeach
-
+                                                <li><a href="{{ route('trangchu.pages.listproduct',['slug'=>str_slug('Phòng Xông Hơi Đá Muối Hymalaya'),'id'=>50]) }}">Phòng Xông Hơi Đá Muối Hymalaya</a></li>
                                             </ul>
                                         </div>
                                         <!-- End .widget-body -->

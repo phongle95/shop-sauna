@@ -7,17 +7,17 @@
                         <div class="col-lg-9">
                             <div class="home-slider owl-carousel owl-carousel-lazy">
                                 <div class="home-slide">
-                                    <div class="owl-lazy slide-bg" data-src="sauna/assets/images/a1.jpg"></div>
+                                    <div class="owl-lazy slide-bg" data-src="sauna/assets/images/anh1.jpg"></div>
 
                                 </div><!-- End .home-slide -->
 
                                 <div class="home-slide">
-                                    <div class="owl-lazy slide-bg" data-src="sauna/assets/images/a1.jpg"></div>
+                                    <div class="owl-lazy slide-bg" data-src="sauna/assets/images/anh2.jpg"></div>
 
                                 </div><!-- End .home-slide -->
 
                                 <div class="home-slide">
-                                    <div class="owl-lazy slide-bg" data-src="sauna/assets/images/a1.jpg"></div>
+                                    <div class="owl-lazy slide-bg" data-src="sauna/assets/images/anh3.jpg"></div>
 
                                 </div><!-- End .home-slide -->
                             </div><!-- End .home-slider -->
@@ -49,7 +49,7 @@
                         <i class="icon-shipping"></i>
 
                         <div class="info-box-content">
-                            <h4>MIỂN PHÍ VẬN CHUYỂN</h4>
+                            <h4>BẢO HÀNH 24H</h4>
                             <p>Giao hành an toàn nhanh chóng</p>
                         </div>
                         <!-- End .info-box-content -->
@@ -123,7 +123,7 @@
 
             <div class="featured-products-section carousel-section">
                 <div class="container">
-                    <h2 class="h3 title mb-4 text-center">Máy Xông Hơi Ướt</h2>
+                    <h2 style="color:#5cb900" class="h3 title mb-4 text-center">Máy Xông Hơi Ướt</h2>
 
                     <div class="featured-products owl-carousel owl-theme">
                         @foreach ($sanpham as $item)
@@ -190,7 +190,7 @@
 
             <div class="carousel-section">
                 <div class="container">
-                    <h2 class="h3 title mb-4 text-center">Máy Xông Hơi Khô</h2>
+                    <h2 style="color:#5cb900" class="h3 title mb-4 text-center">Máy Xông Hơi Khô</h2>
 
                     <div class="new-products owl-carousel owl-theme">
                         @foreach ($sanpham1 as $item)
@@ -253,7 +253,7 @@
 
             <div class="carousel-section">
                 <div class="container">
-                    <h2 class="h3 title mb-4 text-center">Phòng Xông hơi Khô Sauna</h2>
+                    <h2 style="color:#5cb900" class="h3 title mb-4 text-center">Phòng Xông hơi Khô Sauna</h2>
 
                     <div class="new-products owl-carousel owl-theme">
                             @foreach ($sanpham2 as $item)
@@ -315,10 +315,72 @@
 
             <div class="carousel-section">
                 <div class="container">
-                    <h2 class="h3 title mb-4 text-center">Phòng Xông hơi hồng ngoại</h2>
+                    <h2 style="color:#5cb900" class="h3 title mb-4 text-center">Phòng Xông hơi hồng ngoại</h2>
 
                     <div class="new-products owl-carousel owl-theme">
                             @foreach ($sanpham3 as $item)
+
+                            <div class="product">
+                                <figure class="product-image-container">
+                                    <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="product-image2">
+                                        <img src="upload/{{ $item->img }}" alt="máy xông hơi khô">
+                                    </a>
+                                    <span class="product-label label-hot">New</span>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="ratings-container">
+                                        <div class="product-ratings">
+                                            <span class="ratings" style="width:80%"></span>
+                                            <!-- End .ratings -->
+                                        </div>
+                                        <!-- End .product-ratings -->
+                                    </div>
+                                    <!-- End .product-container -->
+                                    <h2 class="product-title">
+                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}">{{ $item->tenSP }}</a>
+                                    </h2>
+                                    <div class="price-box">
+                                        <span class="product-price">Giá : <strong style="color:red">{{ number_format($item->gia) }}</strong> vnđ</span>
+                                    </div>
+                                    <!-- End .price-box -->
+
+                                    <div class="product-action">
+                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-wishlist" title="chi tiết sản phẩm">
+                                            <span>Chi tiết</span>
+                                        </a>
+
+                                        <a  onclick="addCart({{ $item }})" href="" class="paction add-cart" title="Thêm vào giỏ">
+                                            <span>Thêm Vào Giỏ</span>
+                                        </a>
+
+                                        <a href="{{ route('trangchu.chitiet.product',['name'=>str_slug($item->tenSP),'id'=>$item->id,'ma'=>$item->maLoaiSanPham]) }}" class="paction add-compare" title="chi tiết sản phẩm">
+                                            <span>Chi tiết</span>
+                                        </a>
+                                    </div>
+                                    <!-- End .product-action -->
+                                </div>
+                                <!-- End .product-details -->
+                            </div>
+                            <!-- End .product -->
+
+                            @endforeach
+
+
+                    </div>
+                    <!-- End .news-proucts -->
+                </div>
+                <!-- End .container -->
+            </div>
+            <!-- End .carousel-section -->
+
+            <div class="mb-5"></div>
+            <!-- margin -->
+            <div class="carousel-section">
+                <div class="container">
+                    <h2 style="color:#5cb900" class="h3 title mb-4 text-center">Phòng Xông hơi đá muối</h2>
+
+                    <div class="new-products owl-carousel owl-theme">
+                            @foreach ($sanpham4 as $item)
 
                             <div class="product">
                                 <figure class="product-image-container">
@@ -485,7 +547,7 @@
 
             <div class="blog-section">
                 <div class="container">
-                    <h2 class="h3 title text-center">Tin Tức</h2>
+                    <h2 style="color:#5cb900" class="h3 title text-center">Tin Tức</h2>
 
                     <div class="blog-carousel owl-carousel owl-theme">
                         @foreach ($tintuc as $item)
