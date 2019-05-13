@@ -595,7 +595,7 @@
 <meta name="description" content='Sauna Đà nẵng là một trong những công ty hàng đầu trong lĩnh vực thiết kế, lắp đặt , sửa chữa , bảo hành, cung ứng phòng , máy xông hơi tại Việt Nam.
 Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên môn cao, tay nghề vững vàng nên doanh nghiệp ngày càng được sự tín nhiệm của khách hàng.' />
 <!--meta facebook-->
-<meta property="og:title" content="Nhung hotgirl" />
+<meta property="og:title" content="Sauna Đà Nẵng - Phòng Xông Hơi" />
 <meta property="og:description" content="Sauna Đà nẵng là một trong những công ty hàng đầu trong lĩnh vực thiết kế, lắp đặt , sửa chữa , bảo hành, cung ứng phòng , máy xông hơi tại Việt Nam.
 Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên môn cao, tay nghề vững vàng nên doanh nghiệp ngày càng được sự tín nhiệm của khách hàng." />
 <meta property="og:image" content="sauna/assets/images/dt.png" />
@@ -604,7 +604,7 @@ Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên
 Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên môn cao, tay nghề vững vàng nên doanh nghiệp ngày càng được sự tín nhiệm của khách hàng." />
 <meta itemprop="description" content="Sauna Đà nẵng là một trong những công ty hàng đầu trong lĩnh vực thiết kế, lắp đặt , sửa chữa , bảo hành, cung ứng phòng , máy xông hơi tại Việt Nam.
 Với đội ngũ nhân viên ngày càng đông đảo có trình độ chuyên môn cao, tay nghề vững vàng nên doanh nghiệp ngày càng được sự tín nhiệm của khách hàng." />
-<meta itemprop="image" content="sauna/assets/images/nhung.jpg" />
+<meta itemprop="image" content="sauna/assets/images/dt.jpg" />
 <meta name="og:url" content="{{ route('trangchu.pages.trangchu') }}" />
  @endsection
 
